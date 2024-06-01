@@ -5,8 +5,27 @@ const path = require('path');
 
 // Data to inject into the template
 const data = {
-  title: 'Sample PDF Title',
-  message: 'This is a sample message in the PDF.'
+    name: 'John Doe',
+    headline: 'Software Engineer',
+    summary: 'Experienced software engineer with a passion for developing innovative programs...',
+    experience: [
+        {
+            title: 'Senior Software Engineer',
+            company: 'Tech Company',
+            dates: 'Jan 2020 - Present',
+            description: 'Developing and maintaining web applications...'
+        },
+        // Add more experience
+    ],
+    education: [
+        {
+            school: 'University of Somewhere',
+            degree: 'Bachelor of Science in Computer Science',
+            dates: '2015 - 2019'
+        }
+        // Add more education
+    ],
+    skills: ['JavaScript', 'Node.js', 'React', 'CSS']
 };
 
 // Read the EJS template file
@@ -46,7 +65,7 @@ fs.readFile(templatePath, 'utf-8', async (err, template) => {
     }
 
     console.log('Generating PDF...');
-    const pdfPath = path.join(outputDir, 'output.pdf');
+    const pdfPath = path.join(outputDir, `${data.name}.pdf`);
     await page.pdf({ path: pdfPath, format: 'A4' });
 
     console.log(`PDF created successfully at ${pdfPath}`);
