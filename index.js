@@ -6,6 +6,8 @@ const ejs = require("ejs");
 const puppeteer = require("puppeteer");
 const fs = require("fs");
 const path = require("path");
+const multer = require('multer');
+const { spawn } = require('child_process');
 
 
 app.use(bodyParser.json());
@@ -104,6 +106,39 @@ async function sendPDF(userData, res) {
     console.log("PDF sent successfully", filePath);
   });
 }
+
+
+const upload = multer({ dest: 'uploads/' });
+
+
+// Route to upload PDF and process it
+app.post('/upload', upload.single('pdf'), (req, res) => {
+  const pdfPath = req.file.path;
+  // const pythonScript = path.join(__dirname, 'resume_parser.py');
+
+  // const process = spawn('python', [pythonScript, pdfPath]);
+
+  // let scriptOutput = '';
+  // process.stdout.on('data', (data) => {
+  //   scriptOutput += data.toString();
+  // });
+
+  // process.stderr.on('data', (data) => {
+  //   console.error(`stderr: ${data}`);
+  // });
+
+  // process.on('close', (code) => {
+  //   console.log(`child process exited with code ${code}`);
+  //   fs.unlink(pdfPath, (err) => {
+  //     if (err) {
+  //       console.error(err);
+  //       return res.status(500).send('Error processing file');
+  //     }
+  //     res.send(scriptOutput);
+  //   });
+  // });
+});
+
 
 
 
