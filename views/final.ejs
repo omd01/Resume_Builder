@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sahil Vichare - Resume</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
+    <!-- <style>
     body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -103,20 +103,22 @@ a:hover {
     text-decoration: underline;
 }
 
-    </style>
+    </style> -->
 </head>
-<body>
+<body class="p-5">
     <div class="resume-container">
         <header>
-            <h1>Sahil Vichare</h1>
-            <p class="title">Software Developer</p>
-            <div class="contact-info">
-                <span>📞 +91 72002 34883</span>
-                <span>✉️ sahilvichare81@gmail.com</span>
-                <span><a href="#">GitHub</a></span>
-                <span>📍 Yerwada, Pune</span>
-                <span><a href="#">LinkedIn</a></span>
-                <span><a href="#">Leetcode</a></span>
+            <div class="w-full flex flex-col items-center pt-2">
+                <h1 class="text-2xl font-semibold py-1">Sahil Vichare</h1>
+                <p class="text-base font-semibold py-1">Software Developer</p>
+            </div>
+            <div class=" w-full border-b-2 py-3 flex justify-center">
+                <span class="px-2 mb-4 border-r-2">7200234883</span>
+                <span class="px-2 mb-4 border-r-2">sahilvichare81@gmail.com</span>
+                <span class="px-2 mb-4 border-r-2"><a href="#">GitHub </a></span>
+                <span class="px-2 mb-4 border-r-2">Yerwada, Pune</span>
+                <span class="px-2 mb-4 border-r-2"><a href="#">LinkedIn</a></span>
+                <span class="px-2 mb-4 cursor-pointer"><a href="#">Leetcode</a></span>
             </div>
         </header>
         <section class="summary">
