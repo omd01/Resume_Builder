@@ -89,7 +89,7 @@ const data1 = {
 
 
 // Read the EJS template file
-const templatePath = path.join(__dirname, "views/final.ejs");
+const templatePath = path.join(__dirname, "views/resume.ejs");
 
 function createPDF(data) {
   fs.readFile(templatePath, "utf-8", async (err, template) => {

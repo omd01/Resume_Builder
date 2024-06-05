@@ -5,114 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sahil Vichare - Resume</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- <style>
-    body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-}
-
-.resume-container {
-    width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-header {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-header h1 {
-    margin: 0;
-    font-size: 1.6em;
-    letter-spacing: 1px;
-}
-
-.title {
-    color: #555;
-    font-size: 1em;
-    margin-bottom: 12px;
-    margin-top: 2px;
-}
-
-.contact-info {
-    font-size: 0.9em;
-    color: #666;
-    padding-bottom: 2px;
-    border-bottom: 2px solid #ddd;
-}
-
-.contact-info span {
-    display: inline-block;
-    margin-right: 15px;
-}
-
-.contact-info a {
-    color: #0073b1;
-    text-decoration: none;
-    
-}
-
-h2 {
-    color: #333;
-    border-bottom: 2px solid #ddd;
-    padding-bottom: 5px;
-}
-
-.skills-container {
-    display: flex;
-    justify-content: space-between;
-  
-}
-
-.skills-container div {
-    width: 30%;
-}
-
-.skills-container ul{
-    padding: 1px;
-}
-
-.skills-container li {
-    /* margin-bottom: 5px; */
-    padding: 5px;
    
-}
-
-section {
-    margin-bottom: 20px;
-}
-
-h3 {
-    margin: 10px 0 5px;
-    font-size: 1.1em;
-    color: #444;
-}
-
-a {
-    color: #0073b1;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-    </style> -->
 </head>
 <body class="p-5">
     <div class="resume-container">
         <header>
-            <div class="w-full flex flex-col items-center py-2">
+            <div class="w-full flex flex-col items-center ">
                 <h1 class="text-2xl font-semibold py-1">Sahil Vichare</h1>
                 <p class="text-base font-semibold py-1">Software Developer</p>
             </div>
-            <div class=" w-full  py-2 flex justify-center">
+            <div class=" w-full  py-1 flex justify-center">
                 <span class="px-2 mb-3 mr-1 border-r-2">7200234883</span>
                 <span class="px-2 mb-3 mr-1  border-r-2">sahilvichare81@gmail.com</span>
                 <span class="px-2 mb-3 mr-1  border-r-2"><a href="#">GitHub </a></span>
@@ -121,8 +23,8 @@ a:hover {
                 <span class="px-2 mb-3 mr-1  cursor-pointer"><a href="#">Leetcode</a></span>
             </div>
         </header>
-        <section class="summary py-2 ">
-            <h3 class="text-lg font-medium border-b-2">SUMMARY</h3>
+        <section class="summary py-1 ">
+            <h3 class="text-base font-medium border-b-2">SUMMARY</h3>
             <p class="pl-3 py-2">Highly skilled and detail-oriented software developer with 2 years of experience designing, developing, and deploying enterprise-level applications. Proficient in multiple programming languages, software development methodologies, and database management systems. Strong problem-solving skills and ability to work effectively in a team-based environment.</p>
         </section>
        <section class="experience py-4">
@@ -138,6 +40,20 @@ a:hover {
             </div>
         </div>
             <p class="pl-2">Building RESTful APIs (Node.js) from scratch, Testing, Staging and Deploying them on different cloud service providers. Implementing Unit Testing, also hosting informative and tech events based on APIs and Node.js to teach the students and spread API literacy.endeavors.</p>
+        </section>
+
+        <section class="education">
+            <h2 class="text-lg font-medium border-b-2 mb-3">EDUCATION</h2>
+            <div class="flex items-center w-full justify-between pb-1">
+                <div >
+                    <h3 class="text-lg font-semibold">Bachelor in Computer Science</h3>
+                     <p>MES Wadia College of Engineering, Pune</p>
+                </div>
+            <div>
+                <p>2021-2025</p>
+                
+            </div>
+        </div>
         </section>
         
 
@@ -159,56 +75,32 @@ a:hover {
         
         <section class="projects">
             <h2 class="text-lg font-medium border-b-2 mb-3">PROJECTS</h2>
-            <h3>Campus Connect Form</h3>
-            <p><strong>(React.js, Advance Node.js, MongoDB)</strong></p>
-            <p>Project facilitates knowledge sharing & career guidance among students. Incorporates strong user interaction and efficient doubt resolution.</p>
-            <h3>Password Manager App</h3>
-            <p><strong>(Advance Node.js, MongoDB, Cryptography)</strong></p>
-            <p>Password management project ensures secure storage using cryptography, bcrypt encryption, and decryption methods for enhanced data protection and user privacy.</p>
-            <h3>3 Professional Landing Pages</h3>
-            <p><strong>(Advance React.js, HTML, CSS, and Javascript)</strong></p>
+        <div class="mb-3">
+            <h3 class="text-lg font-semibold">Campus Connect Form</h3>
+            <p>React.js, Advance Node.js, MongoDB</p>
+            <p class="pl-2">Project facilitates knowledge sharing & career guidance among students. Incorporates strong user interaction and efficient doubt resolution.</p>
+        </div>
+
+        <div class="mb-3">
+            <h3 class="text-lg font-semibold">Password Manager App</h3>
+            <p>Advance Node.js, MongoDB, Cryptography</p>
+            <p class="pl-2">Password management project ensures secure storage using cryptography, bcrypt encryption, and decryption methods for enhanced data protection and user privacy.</p>
+        </div>
+        <div class="mb-3">
+            <h3 class="text-lg font-semibold">3 Professional Landing Pages</h3>
+            <p>Advance React.js, HTML, CSS, and Javascript</p>
         </section>
-        <section class="education">
-            <h2>Education</h2>
-            <p><strong>Bachelor in Computer Science</strong></p>
-            <p>MES Wadia College of Engineering, Pune • 2021-2025</p>
-        </section>
+        </div>
+
+       
         <section class="skills mt-2">
-            <h3 class="text-lg font-medium border-b-2 mb-2">SKILLS</h3>
+            <h3 class="text-lg font-medium border-b-2 mb-2">OTHER</h3>
             <div class="skills-container flex flex-col justify-evenly">
-                <div class="border-b-2">
-                    <h4 class="text-base font-medium ">Soft Skills</h4>
-                    <ul class="grid grid-cols-5 gap-2 p-2">
-                        <li>Public Speaking</li>
-                        <li>Public Speaking</li>
-                        <li>Public Speaking</li>
-                        <li>Leadership</li>
-                        <li>Critical thinking</li>
-                        <li>Team work</li>
-                    </ul>
-                </div>
-                <div class="border-b-2 mt-3">
-                    <h3 class="text-base font-medium ">Hard Skills</h3>
-                    <ul class="grid grid-cols-5 gap-2 p-2">
-                        <li>Problem Solving</li>
-                        <li>Intermediate Coding</li>
-                        <li>Object Oriented Programming</li>
-                        <li>Application Development</li>
-                    </ul>
-                </div>
-                <div class="border-b-2 mt-3">
-                    <h3 class="text-base font-medium ">Technical Skills</h3>
-                    <ul class="grid grid-cols-5 gap-2 p-2">
-                        <li>HTML</li>
-                        <li>CSS</li>
-                        <li>Javascript</li>
-                        <li>Google Cloud</li>
-                        <li>React.js</li>
-                        <li>Advance Node.js</li>
-                        <li>MongoDB</li>
-                        <li>MySQL</li>
-                    </ul>
-                </div>
+                <div class="">
+                    <li class="text-base font-medium ">Soft Skills: <span class="font-normal">Public Speaking, Leadership, Critical thinking, Team work</span></li>
+                    <li class="text-base font-medium ">Hard Skills: <span class="font-normal">Problem Solving, Intermediate Coding, Object Oriented Programming, Application Development</span></li>
+                    <li class="text-base font-medium ">Technical Skills: <span class="font-normal">HTML, CSS, Javascript, Google Cloud, React.js, Advance Node.js, MongoDB, MySQL </span></li>
+
             </div>
         </section>
     </div>

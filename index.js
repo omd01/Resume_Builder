@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(bodyParser.urlencoded({ extended: true }));
-const templatePath = path.join(__dirname, "views/final.ejs");
+const templatePath = path.join(__dirname, "views/resume.ejs");
 
 // Serve the HTML File
 app.get("/", (req, res) => {
