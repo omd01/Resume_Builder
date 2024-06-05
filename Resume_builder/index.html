@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder Pro</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Resume Builder Pro</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="#" id="manual-input-tab" onclick="showSection('manual-input')">Manual Input</a></li>
+                <li><a href="#" id="linkedin-input-tab" onclick="showSection('linkedin-input')">LinkedIn Profile</a></li>
+                <li><a href="#" id="resume-upload-tab" onclick="showSection('resume-upload')">Upload Resume</a></li>
+            </ul>
+        </nav>
+        
+        <main>
+            <section id="manual-input" class="section">
+                <form id="manual-input-form">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="summary">Professional Summary</label>
+                        <textarea id="summary" name="summary" rows="4"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="experience">Work Experience</label>
+                        <textarea id="experience" name="experience" rows="6"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="education">Education</label>
+                        <textarea id="education" name="education" rows="4"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="skills">Skills</label>
+                        <textarea id="skills" name="skills" rows="3"></textarea>
+                    </div>
+                    <button type="submit">Submit</button>
+                </form>
+            </section>
+
+            <section id="linkedin-input" class="section" style="display: none;">
+                <form id="linkedin-input-form">
+                    <div class="form-group">
+                        <label for="linkedin">LinkedIn Profile URL</label>
+                        <input type="url" id="linkedin" name="linkedin" required>
+                    </div>
+                    <button type="submit">Fetch LinkedIn Data</button>
+                </form>
+            </section>
+
+            <section id="resume-upload" class="section" style="display: none;">
+                <form id="resume-upload-form">
+                    <div class="form-group">
+                        <label for="resume-upload">Upload Resume</label>
+                        <input type="file" id="resume-upload" name="resume-upload" accept=".pdf,.doc,.docx" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="name-upload">Full Name</label>
+                        <input type="text" id="name-upload" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email-upload">Email</label>
+                        <input type="email" id="email-upload" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone-upload">Phone</label>
+                        <input type="tel" id="phone-upload" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="summary-upload">Professional Summary</label>
+                        <textarea id="summary-upload" name="summary" rows="4"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="experience-upload">Work Experience</label>
+                        <textarea id="experience-upload" name="experience" rows="6"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="education-upload">Education</label>
+                        <textarea id="education-upload" name="education" rows="4"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="skills-upload">Skills</label>
+                        <textarea id="skills-upload" name="skills" rows="3"></textarea>
+                    </div>
+                    <button type="submit">Upload and Parse</button>
+                </form>
+            </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

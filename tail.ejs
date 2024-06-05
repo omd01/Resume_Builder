@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+            fontFamily: { 
+            "playfair": ['Playfair Display', 'serif'],
+            "merriweather": ['Merriweather', 'serif'],
+
+            
+        } 
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+</head>
+<body class="p-2 font-merriweather">
+  <div class="w-[800px] p-2 border-2">
+      <header class="flex flex-col justify-center items-center  py-2 border-b-2">
+        <div class="flex flex-col justify-center items-center my-2">
+            <h1 class="font-extrabold text-2xl font-playfair">Om Rajendra Dahale</h1>
+            <p class="font-semibold">Web Developer</p>
+        </div>
+         
+          <div class="font-semibold">
+              <span>📞 <%= phone %></span>
+              <span>✉️ <%= email %></span>
+              <span><a href="<%= github %>">GitHub</a></span>
+              <span>📍 <%= location %></span>
+              <span><a href="<%= linkedin %>">LinkedIn</a></span>
+              <span><a href="<%= leetcode %>">Leetcode</a></span>
+          </div>
+      </header>
+      <section class="summary p-1 border-b-2">
+          <h2 class="font-semibold text-lg ">Summary</h2>
+          <p class="pl-2">Highly skilled and detail-oriented software developer with 2 years of experience designing, developing, and deploying enterprise-level applications. Proficient in multiple programming languages, software development methodologies, and database management systems. Strong problem-solving skills and ability to work effectively in a team-based environment.</p>
+      </section>
+     
+      <section class="skills ">
+          <h3 class="font-semibold text-lg">Skills</h3>
+          <div class="skills-container">
+              <div>
+                  <h4 class="pl-2 font-semibold text-base text-slate-700">Soft Skills</h4>
+                  <ul>
+                      <% skills.soft.forEach(function(skill) { %>
+                          <li><%= skill %></li>
+                      <% }); %>
+                  </ul>
+              </div>
+              <div>
+                  <h4>Hard Skills</h4>
+                  <ul>
+                      <% skills.hard.forEach(function(skill) { %>
+                          <li><%= skill %></li>
+                      <% }); %>
+                  </ul>
+              </div>
+              <div>
+                  <h4>Technology</h4>
+                  <ul>
+                      <% skills.technology.forEach(function(skill) { %>
+                          <li><%= skill %></li>
+                      <% }); %>
+                  </ul>
+              </div>
+          </div>
+      </section>
+
+     
+      <section class="internships">
+          <h2>Internships</h2>
+          <% internships.forEach(function(internship) { %>
+              <% if (internship.name !=null) { %>
+              <h3><%= internship.name %></h3>
+              <p><strong><%= internship.position %> • <%= internship.duration %></strong></p>
+              <p><%= internship.description %></p>
+              <% } %>
+          <% }); %>
+      </section>
+ 
+
+     
+      <section class="experience">
+          <h2>Experience</h2>
+          <% experience.forEach(function(exp) { %>
+              <% if (exp.position !=null) { %>
+              <h3><%= exp.position %></h3>
+              <p><strong><%= exp.company %> • <%= exp.duration %></strong> <a href="<%= exp.badgeLink %>">Badge Link</a></p>
+              <p><%= exp.description %></p>
+              <% } %>
+          <% }); %>
+      </section>
+     
+
+
+     
+      <section class="projects">
+          <h2>Projects</h2>
+          <% projects.forEach(function(project) { %>
+              <% if (projects.name !=null) { %>
+              <h3><%= project.name %></h3>
+              <p><strong><%= project.technology %></strong></p>
+              <p><%= project.description %></p>
+            
+          <% }}); %>
+      </section>
+     
+
+
+     
+          <section class="education">
+              <h2>Education</h2>
+              <% if (education.degree !=null) { %>
+              <p><strong><%= education.degree %></strong></p>
+              <p><%= education.institution %> • <%= education.duration %></p>
+              <% } %>
+          </section>
+         
+  </div>
+</body>
+</body>
+</html>

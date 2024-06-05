@@ -1,262 +1,325 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Resume Form</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+              fontFamily: { 
+              "playfair": ['Playfair Display', 'serif'],
+              "merriweather": ['Merriweather', 'serif'],
+  
+              
+          } 
+          }
+        }
+      }
+    </script>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            background-color: #f4f4f4;
-        }
-        h1, h2 {
-            color: #333;
-        }
-        h1 {
-            margin-bottom: 20px;
-        }
-        label {
-            display: block;
-            margin-top: 10px;
-            color: #555;
-        }
-        input[type="text"], input[type="email"], input[type="tel"], textarea {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        textarea {
-            resize: vertical;
-        }
-        .form-section {
-            background: #fff;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .form-section.hidden {
-            display: none;
-        }
-        .form-section h2 {
-            margin-top: 0;
-        }
-        button {
-            background-color: #007bff;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-        .add-button {
-            display: inline-block;
-            margin-top: 10px;
-        }
-      
-    </style>
-</head>
-<body>
-    <h1>Resume Form</h1>
-    <form id="resumeForm" action="/formdata" method="post">
-
-        
-        <div class="form-section">
-            <h2>Personal Information</h2>
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name">
-
-            <label for="title">Title:</label>
-            <input type="text" id="title" name="title">
-
-            <label for="phone">Phone:</label>
-            <input type="tel" id="phone" name="phone">
-
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email">
-
-            <label for="github">GitHub:</label>
-            <input type="text" id="github" name="github">
-
-            <label for="location">Location:</label>
-            <input type="text" id="location" name="location">
-
-            <label for="linkedin">LinkedIn:</label>
-            <input type="text" id="linkedin" name="linkedin">
-
-            <label for="leetcode">LeetCode:</label>
-            <input type="text" id="leetcode" name="leetcode">
-
-            <label for="summary">Summary:</label>
-            <textarea id="summary" name="summary" rows="4"></textarea>
-        </div>
-
-        <div class="form-section">
-            <h2>Skills</h2>
-            <label for="softSkills">Soft Skills:</label>
-            <input type="text" id="softSkills" name="softSkills">
-
-            <label for="hardSkills">Hard Skills:</label>
-            <input type="text" id="hardSkills" name="hardSkills">
-
-            <label for="technologySkills">Technology Skills:</label>
-            <input type="text" id="technologySkills" name="technologySkills">
-        </div>
-
-        <div class="form-section hidden" id="internshipSection">
-            <h2>Internships</h2>
-            <label for="internshipName">Internship Name:</label>
-            <input type="text" id="internshipName" name="internshipName">
-
-            <label for="internshipPosition">Position:</label>
-            <input type="text" id="internshipPosition" name="internshipPosition">
-
-            <label for="internshipDuration">Duration:</label>
-            <input type="text" id="internshipDuration" name="internshipDuration">
-
-            <label for="internshipDescription">Description:</label>
-            <textarea id="internshipDescription" name="internshipDescription" rows="4"></textarea>
-        </div>
-      
-        <div class="form-section hidden" id="experienceSection">
-            <h2>Experience</h2>
-            <label for="experiencePosition">Position:</label>
-            <input type="text" id="experiencePosition" name="experiencePosition">
-
-            <label for="experienceCompany">Company:</label>
-            <input type="text" id="experienceCompany" name="experienceCompany">
-
-            <label for="experienceDuration">Duration:</label>
-            <input type="text" id="experienceDuration" name="experienceDuration">
-
-            <label for="experienceBadgeLink">Badge Link:</label>
-            <input type="text" id="experienceBadgeLink" name="experienceBadgeLink">
-
-            <label for="experienceDescription">Description:</label>
-            <textarea id="experienceDescription" name="experienceDescription" rows="4"></textarea>
-        </div>
+      body {
+        font-family: Arial, sans-serif;
+        /* margin: 20px; */
        
+      }
+      h1,
+      h2 {
+        color: #333;
+      }
+      h1 {
+        margin-bottom: 20px;
+      }
+      label {
+        display: block;
+        margin-top: 10px;
+        color: #555;
+      }
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      textarea {
+        /* width: 100%; */
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      textarea {
+        resize: vertical;
+      }
+      .form-section {
+        background: #fff;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .form-section.hidden {
+        display: none;
+      }
+      .form-section h2 {
+        margin-top: 0;
+      }
+      button {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+      .add-button {
+        display: inline-block;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body class="px-5 font-arial bg-[#f4f4f4]">
+    <div class="w-full h-11 bg-slate-400">
+    </div>
+    <h1 class="font-semibold text-xl py-3">Resume Form</h1>
 
-        <div class="form-section hidden" id="projectSection">
-            <h2>Projects</h2>
-            <label for="projectName">Project Name:</label>
-            <input type="text" id="projectName" name="projectName">
+    <form id="resumeForm" class="flex flex-col w-full" action="/formdata" method="post">
 
-            <label for="projectTechnology">Technology:</label>
-            <input type="text" id="projectTechnology" name="projectTechnology">
+    <div class="flex w-full">
+      <div class="form-section" id="personal">
+        <h2>Personal Information</h2>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" />
 
-            <label for="projectDescription">Description:</label>
-            <textarea id="projectDescription" name="projectDescription" rows="4"></textarea>
-        </div>
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" />
 
-        <div class="form-section hidden" id="educationSection">
-            <h2>Education</h2>
-            <label for="educationDegree">Degree:</label>
-            <input type="text" id="educationDegree" name="educationDegree">
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone" />
 
-            <label for="educationInstitution">Institution:</label>
-            <input type="text" id="educationInstitution" name="educationInstitution">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" />
 
-            <label for="educationDuration">Duration:</label>
-            <input type="text" id="educationDuration" name="educationDuration">
-        </div>
+        <label for="github">GitHub:</label>
+        <input type="text" id="github" name="github" />
 
-        <button type="button" class="add-button" onclick="toggleSection('internshipSection')">Add Internship</button>
-        <button type="button" class="add-button" onclick="toggleSection('experienceSection')">Add Experience</button>
-        <button type="button" class="add-button" onclick="toggleSection('projectSection')">Add Projects</button>
-        <button type="button" class="add-button" onclick="toggleSection('educationSection')">Add Education</button>
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" />
 
-        <button type="submit">Submit</button>
+        <label for="linkedin">LinkedIn:</label>
+        <input type="text" id="linkedin" name="linkedin" />
+
+        <label for="leetcode">LeetCode:</label>
+        <input type="text" id="leetcode" name="leetcode" />
+
+        <label for="summary">Summary:</label>
+        <textarea id="summary" name="summary" rows="4"></textarea>
+      </div>
+
+      <div class="form-section" id="skills">
+        <h2>Skills</h2>
+        <label for="softSkills">Soft Skills:</label>
+        <input type="text" id="softSkills" name="softSkills" />
+
+        <label for="hardSkills">Hard Skills:</label>
+        <input type="text" id="hardSkills" name="hardSkills" />
+
+        <label for="technologySkills">Technology Skills:</label>
+        <input type="text" id="technologySkills" name="technologySkills" />
+      </div>
+    </div>
+
+
+    <div>
+      <div class="form-section " id="internshipSection">
+        <h2>Internships</h2>
+        <label for="internshipName">Internship Name:</label>
+        <input type="text" id="internshipName" name="internshipName" />
+
+        <label for="internshipPosition">Position:</label>
+        <input type="text" id="internshipPosition" name="internshipPosition" />
+
+        <label for="internshipDuration">Duration:</label>
+        <input type="text" id="internshipDuration" name="internshipDuration" />
+
+        <label for="internshipDescription">Description:</label>
+        <textarea
+          id="internshipDescription"
+          name="internshipDescription"
+          rows="4"
+        ></textarea>
+      </div>
+      
+      <div class="form-section " id="experienceSection">
+        <h2>Experience</h2>
+        <label for="experiencePosition">Position:</label>
+        <input type="text" id="experiencePosition" name="experiencePosition" />
+
+        <label for="experienceCompany">Company:</label>
+        <input type="text" id="experienceCompany" name="experienceCompany" />
+
+        <label for="experienceDuration">Duration:</label>
+        <input type="text" id="experienceDuration" name="experienceDuration" />
+
+        <label for="experienceBadgeLink">Badge Link:</label>
+        <input
+          type="text"
+          id="experienceBadgeLink"
+          name="experienceBadgeLink"
+        />
+
+        <label for="experienceDescription">Description:</label>
+        <textarea
+          id="experienceDescription"
+          name="experienceDescription"
+          rows="4"
+        ></textarea>
+      </div>
+    </div>
+
+    <div>
+      <div class="form-section " id="projectSection">
+        <h2>Projects</h2>
+        <label for="projectName">Project Name:</label>
+        <input type="text" id="projectName" name="projectName" />
+
+        <label for="projectTechnology">Technology:</label>
+        <input type="text" id="projectTechnology" name="projectTechnology" />
+
+        <label for="projectDescription">Description:</label>
+        <textarea
+          id="projectDescription"
+          name="projectDescription"
+          rows="4"
+        ></textarea>
+      </div>
+      <div class="form-section " id="educationSection">
+        <h2>Education</h2>
+        <label for="educationDegree">Degree:</label>
+        <input type="text" id="educationDegree" name="educationDegree" />
+
+        <label for="educationInstitution">Institution:</label>
+        <input
+          type="text"
+          id="educationInstitution"
+          name="educationInstitution"
+        />
+
+        <label for="educationDuration">Duration:</label>
+        <input type="text" id="educationDuration" name="educationDuration" />
+      </div>
+    </div>
+<!-- 
+      <button
+        type="button"
+        class="add-button"
+        onclick="toggleSection('internshipSection')"
+      >
+        Add Internship
+      </button>
+      <button
+        type="button"
+        class="add-button"
+        onclick="toggleSection('experienceSection')"
+      >
+        Add Experience
+      </button>
+      <button
+        type="button"
+        class="add-button"
+        onclick="toggleSection('projectSection')"
+      >
+        Add Projects
+      </button>
+      <button
+        type="button"
+        class="add-button"
+        onclick="toggleSection('educationSection')"
+      >
+        Add Education
+      </button> -->
+
+      <button type="submit">Submit</button>
     </form>
 
     <script>
+     
+      document
+        .getElementById("resumeForm")
+        .addEventListener("submit", async function (event) {
+          event.preventDefault();
 
+          const formData = new FormData(event.target);
 
-        function toggleSection(sectionId) {
-            const section = document.getElementById(sectionId);
-            const btn = document.getElementById("btn")
+          const data = {
+            name: formData.get("name"),
+            title: formData.get("title"),
+            phone: formData.get("phone"),
+            email: formData.get("email"),
+            github: formData.get("github"),
+            location: formData.get("location"),
+            linkedin: formData.get("linkedin"),
+            leetcode: formData.get("leetcode"),
+            summary: formData.get("summary"),
+            skills: {
+              soft: formData.get("softSkills").split(","),
+              hard: formData.get("hardSkills").split(","),
+              technology: formData.get("technologySkills").split(","),
+            },
+            internships: [
+              {
+                name: formData.get("internshipName"),
+                position: formData.get("internshipPosition"),
+                duration: formData.get("internshipDuration"),
+                description: formData.get("internshipDescription"),
+              },
+            ],
+            experience: [
+              {
+                position: formData.get("experiencePosition"),
+                company: formData.get("experienceCompany"),
+                duration: formData.get("experienceDuration"),
+                badgeLink: formData.get("experienceBadgeLink"),
+                description: formData.get("experienceDescription"),
+              },
+            ],
+            projects: [
+              {
+                name: formData.get("projectName"),
+                technology: formData.get("projectTechnology"),
+                description: formData.get("projectDescription"),
+              },
+            ],
+            education: {
+              degree: formData.get("educationDegree"),
+              institution: formData.get("educationInstitution"),
+              duration: formData.get("educationDuration"),
+            },
+          };
 
-            if (section.classList.contains('hidden')) {
-                section.classList.remove('hidden');
-                
-            } else {
-                section.classList.add('hidden');
-            }
-        }
+          const response = await fetch("/formdata", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+          });
 
-        document.getElementById('resumeForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            const formData = new FormData(event.target);
-
-            const data = {
-                name: formData.get('name'),
-                title: formData.get('title'),
-                phone: formData.get('phone'),
-                email: formData.get('email'),
-                github: formData.get('github'),
-                location: formData.get('location'),
-                linkedin: formData.get('linkedin'),
-                leetcode: formData.get('leetcode'),
-                summary: formData.get('summary'),
-                skills: {
-                    soft: formData.get('softSkills').split(','),
-                    hard: formData.get('hardSkills').split(','),
-                    technology: formData.get('technologySkills').split(',')
-                },
-                internships: [
-                    {
-                        name: formData.get('internshipName'),
-                        position: formData.get('internshipPosition'),
-                        duration: formData.get('internshipDuration'),
-                        description: formData.get('internshipDescription')
-                    }
-                ],
-                experience: [
-                    {
-                        position: formData.get('experiencePosition'),
-                        company: formData.get('experienceCompany'),
-                        duration: formData.get('experienceDuration'),
-                        badgeLink: formData.get('experienceBadgeLink'),
-                        description: formData.get('experienceDescription')
-                    }
-                ],
-                projects: [
-                    {
-                        name: formData.get('projectName'),
-                        technology: formData.get('projectTechnology'),
-                        description: formData.get('projectDescription')
-                    }
-                ],
-                education: {
-                    degree: formData.get('educationDegree'),
-                    institution: formData.get('educationInstitution'),
-                    duration: formData.get('educationDuration')
-                }
-            };
-
-            fetch('/formdata', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            })
-            .then(response => response.json())
-            .then(result => {
-                console.log('Success:', result);
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
+          if (response.ok) {
+            console.log("PDF generated successfully");
+            console.log(response);
+            const blob = await response.blob();
+            const link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            link.download = data.name + ".pdf"; // You can use dynamic naming if needed
+            link.click();
+            URL.revokeObjectURL(link.href);
+          } else {
+            console.error("Failed to download PDF:", response.statusText);
+          }
         });
-   
     </script>
-</body>
+  </body>
 </html>

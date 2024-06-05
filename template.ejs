@@ -150,7 +150,7 @@ a:hover {
 
        
         <section class="internships">
-            <h2>Internships</h2>
+            <h3>Internships</h3>
             <% internships.forEach(function(internship) { %>
                 <% if (internship.name !=null) { %>
                 <h3><%= internship.name %></h3>
@@ -163,7 +163,7 @@ a:hover {
 
        
         <section class="experience">
-            <h2>Experience</h2>
+            <h3>Experience</h3>
             <% experience.forEach(function(exp) { %>
                 <% if (exp.position !=null) { %>
                 <h3><%= exp.position %></h3>
@@ -177,7 +177,7 @@ a:hover {
 
        
         <section class="projects">
-            <h2>Projects</h2>
+            <h3>Projects</h3>
             <% projects.forEach(function(project) { %>
                 <% if (projects.name !=null) { %>
                 <h3><%= project.name %></h3>
@@ -191,7 +191,7 @@ a:hover {
 
        
             <section class="education">
-                <h2>Education</h2>
+                <h3>Education</h3>
                 <% if (education.degree !=null) { %>
                 <p><strong><%= education.degree %></strong></p>
                 <p><%= education.institution %> • <%= education.duration %></p>
