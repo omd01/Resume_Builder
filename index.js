@@ -7,19 +7,17 @@ const puppeteer = require("puppeteer");
 const fs = require("fs");
 const path = require("path");
 const multer = require('multer');
-const pdf = require('pdf-parse');
-const PDFParser = require('pdf2json');
 
 app.use(bodyParser.json());
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(bodyParser.urlencoded({ extended: true }));
-const templatePath = path.join(__dirname, "template.ejs");
+const templatePath = path.join(__dirname, "views/template.ejs");
 
 // Serve the HTML form
 app.get("/", (req, res) => {
   console.log("Serving index.html");
-  res.sendFile(path.join(__dirname, "form.html"));
+  res.sendFile(path.join(__dirname, "index.html"));
 });
 
 app.post("/formdata", async (req, res) => {
@@ -135,66 +133,6 @@ app.post('/getpdftoserver', upload.single('pdfFile'), (req, res) => {
     }
 });
 
-
-// PDF to JSON 
-
-// // Function to convert PDF to JSON
-// async function pdfToJson(pdfPath) {
-//   try {
-//       // Read the PDF file
-//       const dataBuffer = fs.readFileSync(pdfPath);
-
-//       // Parse the PDF
-//       const pdfData = await pdf(dataBuffer);
-
-//       // Extract text from PDF
-//       const text = pdfData.text;
-
-//       // Convert text to JSON (example: each line of text is a separate JSON object)
-//       const lines = text.split('\n');
-//       const jsonOutput = lines.map((line, index) => ({
-//           id: index + 1,
-//           content: line.trim()
-//       }));
-
-//       return jsonOutput;
-//   } catch (error) {
-//       console.error('Error converting PDF to JSON:', error);
-//       throw error;
-//   }
-// }
-
-// const pdfPath = path.join(__dirname, 'client-pdf/sahil.pdf'); // Path to your PDF file
-// pdfToJson(pdfPath)
-//     .then(jsonOutput => {
-//         console.log('JSON output:', jsonOutput);
-//         // Optionally, you can save the JSON to a file
-//         fs.writeFileSync('output.json', JSON.stringify(jsonOutput, null, 2));
-//     })
-//     .catch(error => {
-//         console.error('Error:', error);
-//     });
-
-// PDF TO JSON PDF2JSON
-
-
-// Function to convert PDF to JSON
-const pdfParser = new PDFParser(this, 1);
-
-pdfParser.on("pdfParser_dataError", (errData) =>
- console.error(errData.parserError)
-);
-pdfParser.on("pdfParser_dataReady", (pdfData) => {
- fs.writeFile("new.content.txt",
-  pdfParser.getRawTextContent(),
-  () => {
-   console.log("Done.");
-  }
- );
-});
-const pdfPath = path.join(__dirname, 'client-pdf/sahil.pdf');
-
-pdfParser.loadPDF(pdfPath);
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);

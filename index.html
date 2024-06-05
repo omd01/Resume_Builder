@@ -3,252 +3,548 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Resume Form</title>
+    <title>LinksUs Resume Builder</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-              fontFamily: { 
-              "playfair": ['Playfair Display', 'serif'],
-              "merriweather": ['Merriweather', 'serif'],
-  
-              
-          } 
-          }
-        }
-      }
-    </script>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        /* margin: 20px; */
-       
-      }
-      h1,
-      h2 {
-        color: #333;
-      }
-      h1 {
-        margin-bottom: 20px;
-      }
-      label {
-        display: block;
-        margin-top: 10px;
-        color: #555;
-      }
-      input[type="text"],
-      input[type="email"],
-      input[type="tel"],
-      textarea {
-        /* width: 100%; */
-        padding: 10px;
-        margin-top: 5px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-      }
-      textarea {
-        resize: vertical;
-      }
-      .form-section {
-        background: #fff;
-        padding: 20px;
-        margin-bottom: 20px;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      }
-      .form-section.hidden {
-        display: none;
-      }
-      .form-section h2 {
-        margin-top: 0;
-      }
-      button {
-        background-color: #007bff;
-        color: #fff;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-      }
-      button:hover {
-        background-color: #0056b3;
-      }
-      .add-button {
-        display: inline-block;
-        margin-top: 10px;
-      }
-    </style>
   </head>
-  <body class="px-5 font-arial bg-[#f4f4f4]">
-    <div class="w-full h-11 bg-slate-400">
-    </div>
-    <h1 class="font-semibold text-xl py-3">Resume Form</h1>
 
-    <form id="resumeForm" class="flex flex-col w-full" action="/formdata" method="post">
+  <body class="p-2">
+    <div class="container flex flex-col justify-center w-full">
+      <header class="flex justify-center flex-col items-center pt-4">
+        <h1 class="text-[#007bff] font-bold text-3xl">Resume Builder Pro</h1>
+        <p class="text-[#007bff] font-semibold text-base">Powered By LinksUs</p>
+      </header>
 
-    <div class="flex w-full">
-      <div class="form-section" id="personal">
-        <h2>Personal Information</h2>
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" />
+      <nav class="justify-center flex py-4">
+        <ul class="flex font-semibold text-white text-sm">
+          <li
+            class="mx-3 bg-[#007bff] p-3 hover:bg-[#0056b3] cursor-pointer"
+            id="manual-input-tab"
+            onclick="showSection('manual-input')"
+          >
+            Manual Input
+          </li>
+          <li
+            class="mx-3 bg-[#007bff] p-3 hover:bg-[#0056b3] cursor-pointer"
+            id="linkedin-input-tab"
+            onclick="showSection('linkedin-input')"
+          >
+            LinkedIn Profile
+          </li>
+          <li
+            class="mx-3 bg-[#007bff] p-3 hover:bg-[#0056b3] cursor-pointer"
+            id="resume-upload-tab"
+            onclick="showSection('resume-upload')"
+          >
+            Upload Resume
+          </li>
+        </ul>
+      </nav>
 
-        <label for="title">Title:</label>
-        <input type="text" id="title" name="title" />
+      <main>
+        <section id="manual-input" class="section">
+          <form
+            class="max-w-md mx-auto p-3 md:max-w-3xl"
+            action="/formdata"
+            method="post"
+            id="resumeForm"
+          >
+            <h2 class="py-4 text-2xl">Resume Form</h2>
 
-        <label for="phone">Phone:</label>
-        <input type="tel" id="phone" name="phone" />
+            <div class="relative z-0 w-full mb-5 group">
+              <label
+                for="name"
+                class="block mb-2 text-sm font-medium text-gray-900"
+                >Name *</label
+              >
+              <input
+                type="text"
+                name="name"
+                id="name"
+                class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                placeholder=" "
+                required
+              />
+            </div>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" />
+            <div class="relative z-0 w-full mb-5 group">
+              <label
+                for="phone"
+                class="block mb-2 text-sm font-medium text-gray-900"
+                >Phone</label
+              >
+              <input
+                type="text"
+                name="phone"
+                id="phone"
+                class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                placeholder=" "
+                required
+              />
+            </div>
 
-        <label for="github">GitHub:</label>
-        <input type="text" id="github" name="github" />
+            <div class="relative z-0 w-full mb-5 group">
+              <label
+                for="email"
+                class="block mb-2 text-sm font-medium text-gray-900"
+                >Email</label
+              >
+              <input
+                type="email"
+                name="email"
+                id="email"
+                class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                placeholder=" "
+                required
+              />
+            </div>
 
-        <label for="location">Location:</label>
-        <input type="text" id="location" name="location" />
+            <div class="grid md:grid-cols-2 md:gap-6">
+              <div class="relative z-0 w-full mb-5 group">
+                <label
+                  for="location"
+                  class="block mb-2 text-sm font-medium text-gray-900"
+                  >Location</label
+                >
+                <input
+                  type="text"
+                  name="location"
+                  id="location"
+                  class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  placeholder=" "
+                  required
+                />
+              </div>
+              <div class="relative z-0 w-full mb-5 group">
+                <label
+                  for="github"
+                  class="block mb-2 text-sm font-medium text-gray-900"
+                  >GitHub</label
+                >
+                <input
+                  type="text"
+                  name="github"
+                  id="github"
+                  class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  placeholder=" "
+                />
+              </div>
+            </div>
 
-        <label for="linkedin">LinkedIn:</label>
-        <input type="text" id="linkedin" name="linkedin" />
+            <div class="grid md:grid-cols-2 md:gap-6">
+              <div class="relative z-0 w-full mb-5 group">
+                <label
+                  for="leetcode"
+                  class="block mb-2 text-sm font-medium text-gray-900"
+                  >LeetCode</label
+                >
+                <input
+                  type="text"
+                  name="leetcode"
+                  id="leetcode"
+                  class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  placeholder=" "
+                />
+              </div>
+              <div class="relative z-0 w-full mb-5 group">
+                <label
+                  for="linkedin"
+                  class="block mb-2 text-sm font-medium text-gray-900"
+                  >Linkdin</label
+                >
+                <input
+                  type="text"
+                  name="linkedin"
+                  id="linkedin"
+                  class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  placeholder=" "
+                />
+              </div>
+            </div>
+            <div class="relative z-0 w-full mb-5 group">
+              <label
+                for="summary"
+                class="block mb-2 text-sm font-medium text-gray-900"
+                >Summary</label
+              >
+              <textarea
+                rows="2"
+                type="text"
+                name="summary"
+                id="summary"
+                class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                placeholder=" "
+                required
+              ></textarea>
+            </div>
 
-        <label for="leetcode">LeetCode:</label>
-        <input type="text" id="leetcode" name="leetcode" />
+            <!-- Skills -->
 
-        <label for="summary">Summary:</label>
-        <textarea id="summary" name="summary" rows="4"></textarea>
-      </div>
+            <div class="flex items-center py-6">
+              <div class="">
+                <h2 class="text-lg mr-5">skills</h2>
+              </div>
+              <div class="h-[2px] bg-slate-300 w-full"></div>
+            </div>
 
-      <div class="form-section" id="skills">
-        <h2>Skills</h2>
-        <label for="softSkills">Soft Skills:</label>
-        <input type="text" id="softSkills" name="softSkills" />
+            <div class="relative z-0 w-full mb-5 group">
+              <label
+                for="softSkills"
+                class="block mb-2 text-sm font-medium text-gray-900"
+                >Soft Skills ( seprate by comma ',' )</label
+              >
+              <input
+                type="text"
+                name="softSkills"
+                id="softSkills"
+                class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                placeholder=" "
+                required
+              />
+            </div>
 
-        <label for="hardSkills">Hard Skills:</label>
-        <input type="text" id="hardSkills" name="hardSkills" />
+            <div class="relative z-0 w-full mb-5 group">
+              <label
+                for="hardSkills"
+                class="block mb-2 text-sm font-medium text-gray-900"
+                >Hard Skills</label
+              >
+              <input
+                type="text"
+                name="hardSkills"
+                id="hardSkills"
+                class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                placeholder=" "
+                required
+              />
+            </div>
 
-        <label for="technologySkills">Technology Skills:</label>
-        <input type="text" id="technologySkills" name="technologySkills" />
-      </div>
-    </div>
+            <div class="relative z-0 w-full mb-5 group">
+              <label
+                for="technologySkills"
+                class="block mb-2 text-sm font-medium text-gray-900"
+                >Technology Skills</label
+              >
+              <input
+                type="text"
+                name="technologySkills"
+                id="technologySkills"
+                class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                placeholder=" "
+                required
+              />
+            </div>
 
+            <!-- Education -->
 
-    <div>
-      <div class="form-section " id="internshipSection">
-        <h2>Internships</h2>
-        <label for="internshipName">Internship Name:</label>
-        <input type="text" id="internshipName" name="internshipName" />
+            <div class="flex items-center py-6">
+              <div class="">
+                <h2 class="text-lg mr-5">Education</h2>
+              </div>
+              <div class="h-[2px] bg-slate-300 w-full"></div>
+            </div>
 
-        <label for="internshipPosition">Position:</label>
-        <input type="text" id="internshipPosition" name="internshipPosition" />
+            <div class="grid md:grid-cols-2 md:gap-6">
+              <div class="relative z-0 w-full mb-5 group">
+                <label
+                  for="educationDegree"
+                  class="block mb-2 text-sm font-medium text-gray-900"
+                  >Degree</label
+                >
+                <input
+                  type="text"
+                  name="educationDegree"
+                  id="educationDegree"
+                  class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  placeholder=" "
+                />
+              </div>
 
-        <label for="internshipDuration">Duration:</label>
-        <input type="text" id="internshipDuration" name="internshipDuration" />
+              <div class="relative z-0 w-full mb-5 group">
+                <label
+                  for="educationInstitution"
+                  class="block mb-2 text-sm font-medium text-gray-900"
+                  >Institution</label
+                >
+                <input
+                  type="text"
+                  name="educationInstitution"
+                  id="educationInstitution"
+                  class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  placeholder=" "
+                />
+              </div>
+            </div>
 
-        <label for="internshipDescription">Description:</label>
-        <textarea
-          id="internshipDescription"
-          name="internshipDescription"
-          rows="4"
-        ></textarea>
-      </div>
+            <!-- Internship -->
+            <div class="flex items-center py-6">
+              <div class="">
+                <h2 class="text-lg mr-5">Internships</h2>
+              </div>
+              <div class="h-[2px] bg-slate-300 w-full"></div>
+            </div>
+            <div class="relative z-0 w-full mb-5 group">
+              <label
+                for="internshipName"
+                class="block mb-2 text-sm font-medium text-gray-900"
+                >Internship Name</label
+              >
+              <input
+                type="text"
+                name="internshipName"
+                id="internshipName"
+                class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                placeholder=" "
+              />
+            </div>
+            <div class="grid md:grid-cols-2 md:gap-6">
+              <div class="relative z-0 w-full mb-5 group">
+                <label
+                  for="internshipPosition"
+                  class="block mb-2 text-sm font-medium text-gray-900"
+                  >Position</label
+                >
+                <input
+                  type="text"
+                  name="internshipPosition"
+                  id="internshipPosition"
+                  class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  placeholder=" "
+                />
+              </div>
+
+              <div class="relative z-0 w-full mb-5 group">
+                <label
+                  for="internshipDuration"
+                  class="block mb-2 text-sm font-medium text-gray-900"
+                  >Duration</label
+                >
+                <input
+                  type="text"
+                  name="internshipDuration"
+                  id="internshipDuration"
+                  class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  placeholder=" "
+                />
+              </div>
+            </div>
+
+            <div class="relative z-0 w-full mb-5 group">
+              <label
+                for="internshipDescription"
+                class="block mb-2 text-sm font-medium text-gray-900"
+                >Description</label
+              >
+              <textarea
+                type="text"
+                rows="3"
+                name="internshipDescription"
+                id="internshipDescription"
+                class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                placeholder=" "
+              ></textarea>
+            </div>
+
+            <!-- Experience -->
+            <div class="flex items-center py-6">
+              <div class="">
+                <h2 class="text-lg mr-5">Experience</h2>
+              </div>
+              <div class="h-[2px] bg-slate-300 w-full"></div>
+            </div>
+            <div class="grid md:grid-cols-2 md:gap-6">
+              <div class="relative z-0 w-full mb-5 group">
+                <label
+                  for="experiencePosition"
+                  class="block mb-2 text-sm font-medium text-gray-900"
+                  >Position</label
+                >
+                <input
+                  type="text"
+                  name="experiencePosition"
+                  id="experiencePosition"
+                  class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  placeholder=" "
+                />
+              </div>
+
+              <div class="relative z-0 w-full mb-5 group">
+                <label
+                  for="experienceCompany"
+                  class="block mb-2 text-sm font-medium text-gray-900"
+                  >Company</label
+                >
+                <input
+                  type="text"
+                  name="experienceCompany"
+                  id="experienceCompany"
+                  class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  placeholder=" "
+                />
+              </div>
+
+              <div class="relative z-0 w-full mb-5 group">
+                <label
+                  for="experienceDuration"
+                  class="block mb-2 text-sm font-medium text-gray-900"
+                  >Duration</label
+                >
+                <input
+                  type="text"
+                  name="experienceDuration"
+                  id="experienceDuration"
+                  class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  placeholder=" "
+                />
+              </div>
+
+              <div class="relative z-0 w-full mb-5 group">
+                <label
+                  for="experienceBadgeLink"
+                  class="block mb-2 text-sm font-medium text-gray-900"
+                  >Badge Link</label
+                >
+                <input
+                  type="text"
+                  name="experienceBadgeLink"
+                  id="experienceBadgeLink"
+                  class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  placeholder=" "
+                />
+              </div>
+            </div>
+
+            <div class="relative z-0 w-full mb-5 group">
+              <label
+                for="experienceDescription"
+                class="block mb-2 text-sm font-medium text-gray-900"
+                >Description</label
+              >
+              <textarea
+                type="text"
+                rows="3"
+                name="experienceDescription"
+                id="experienceDescription"
+                class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                placeholder=" "
+              ></textarea>
+            </div>
+
+            <div class="flex items-center py-6">
+              <div class="">
+                <h2 class="text-lg mr-5">Projects</h2>
+              </div>
+              <div class="h-[2px] bg-slate-300 w-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 md:gap-6">
+              <div class="relative z-0 w-full mb-5 group">
+                <label
+                  for="projectName"
+                  class="block mb-2 text-sm font-medium text-gray-900"
+                  >Project Name</label
+                >
+                <input
+                  type="text"
+                  name="projectName"
+                  id="projectName"
+                  class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  placeholder=" "
+                />
+              </div>
+
+              <div class="relative z-0 w-full mb-5 group">
+                <label
+                  for="projectTechnology"
+                  class="block mb-2 text-sm font-medium text-gray-900"
+                  >Technology</label
+                >
+                <input
+                  type="text"
+                  name="projectTechnology"
+                  id="projectTechnology"
+                  class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  placeholder=" "
+                />
+              </div>
+            </div>
+
+            <div class="relative z-0 w-full mb-5 group">
+              <label
+                for="projectDescription"
+                class="block mb-2 text-sm font-medium text-gray-900"
+                >Description</label
+              >
+              <textarea
+                type="text"
+                rows="3"
+                name="projectDescription"
+                id="projectDescription"
+                class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                placeholder=" "
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            >
+              Submit
+            </button>
+          </form>
+        </section>
+        <section id="linkedin-input" class="section" style="display: none">
+          <form id="linkedin-input-form">
+            <div class="form-group">
+              <label for="linkedin">LinkedIn Profile URL</label>
+              <input type="url" id="linkedin" name="linkedin" required />
+            </div>
+            <button type="submit">Fetch LinkedIn Data</button>
+          </form>
+        </section>
+
+        <section id="resume-upload" class="section" style="display: none">
+           
+            <div class="max-w-md mx-auto p-3 md:max-w-3xl">
+    <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-52 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50  hover:bg-gray-100  ">
+        <div class="flex flex-col items-center justify-center pt-5 pb-6">
+            <svg class="w-8 h-8 mb-4 text-gray-500 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
+            </svg>
+            <p class="mb-2 text-sm text-gray-500"><span class="font-semibold">Click to upload</span> or drag and drop</p>
+            <p class="text-xs text-gray-500">PDF Only</p>
+        </div>
+        <input id="dropzone-file" type="file" class="hidden" />
+    </label>
+            </div>
       
-      <div class="form-section " id="experienceSection">
-        <h2>Experience</h2>
-        <label for="experiencePosition">Position:</label>
-        <input type="text" id="experiencePosition" name="experiencePosition" />
-
-        <label for="experienceCompany">Company:</label>
-        <input type="text" id="experienceCompany" name="experienceCompany" />
-
-        <label for="experienceDuration">Duration:</label>
-        <input type="text" id="experienceDuration" name="experienceDuration" />
-
-        <label for="experienceBadgeLink">Badge Link:</label>
-        <input
-          type="text"
-          id="experienceBadgeLink"
-          name="experienceBadgeLink"
-        />
-
-        <label for="experienceDescription">Description:</label>
-        <textarea
-          id="experienceDescription"
-          name="experienceDescription"
-          rows="4"
-        ></textarea>
-      </div>
+        </section>
+      </main>
     </div>
-
-    <div>
-      <div class="form-section " id="projectSection">
-        <h2>Projects</h2>
-        <label for="projectName">Project Name:</label>
-        <input type="text" id="projectName" name="projectName" />
-
-        <label for="projectTechnology">Technology:</label>
-        <input type="text" id="projectTechnology" name="projectTechnology" />
-
-        <label for="projectDescription">Description:</label>
-        <textarea
-          id="projectDescription"
-          name="projectDescription"
-          rows="4"
-        ></textarea>
-      </div>
-      <div class="form-section " id="educationSection">
-        <h2>Education</h2>
-        <label for="educationDegree">Degree:</label>
-        <input type="text" id="educationDegree" name="educationDegree" />
-
-        <label for="educationInstitution">Institution:</label>
-        <input
-          type="text"
-          id="educationInstitution"
-          name="educationInstitution"
-        />
-
-        <label for="educationDuration">Duration:</label>
-        <input type="text" id="educationDuration" name="educationDuration" />
-      </div>
-    </div>
-<!-- 
-      <button
-        type="button"
-        class="add-button"
-        onclick="toggleSection('internshipSection')"
-      >
-        Add Internship
-      </button>
-      <button
-        type="button"
-        class="add-button"
-        onclick="toggleSection('experienceSection')"
-      >
-        Add Experience
-      </button>
-      <button
-        type="button"
-        class="add-button"
-        onclick="toggleSection('projectSection')"
-      >
-        Add Projects
-      </button>
-      <button
-        type="button"
-        class="add-button"
-        onclick="toggleSection('educationSection')"
-      >
-        Add Education
-      </button> -->
-
-      <button type="submit">Submit</button>
-    </form>
 
     <script>
-     
-      document
-        .getElementById("resumeForm")
-        .addEventListener("submit", async function (event) {
+      document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("manual-input-tab").click();
+      });
+      function showSection(sectionId) {
+        const sections = document.querySelectorAll(".section");
+        const tabs = document.querySelectorAll("nav ul li a");
+
+        sections.forEach((section) => {
+          section.style.display = "none";
+          section.classList.remove("active");
+        });
+
+        tabs.forEach((tab) => {
+          tab.classList.remove("active");
+        });
+
+        document.getElementById(sectionId).style.display = "block";
+        document.getElementById(sectionId).classList.add("active");
+        document.getElementById(sectionId + "-tab").classList.add("active");
+      }
+
+    //   Send Resume Form 
+    document.getElementById("resumeForm").addEventListener("submit", async function (event) {
           event.preventDefault();
 
           const formData = new FormData(event.target);
@@ -307,6 +603,7 @@
             body: JSON.stringify(data),
           });
 
+          alert("form sent successfully")
           if (response.ok) {
             console.log("PDF generated successfully");
             console.log(response);
@@ -319,7 +616,38 @@
           } else {
             console.error("Failed to download PDF:", response.statusText);
           }
+    });
+    
+    // Send Pdf to get Data 
+    document.getElementById('dropzone-file').addEventListener('change', async (event) => {
+            const fileInput = event.target;
+            const file = fileInput.files[0];
+
+            if (file.type !== 'application/pdf') {
+                alert('Please select a PDF file.');
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('pdfFile', file);
+
+            try {
+                const response = await fetch('/getpdftoserver', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (response.ok) {
+                    alert('PDF uploaded successfully!');
+                } else {
+                    alert('Failed to upload PDF.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error uploading PDF.');
+            }
         });
+    
     </script>
   </body>
 </html>
