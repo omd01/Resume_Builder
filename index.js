@@ -6,6 +6,7 @@ const ejs = require("ejs");
 const puppeteer = require("puppeteer");
 const fs = require("fs");
 const path = require("path");
+const multer = require('multer');
 
 app.use(bodyParser.json());
 app.set("view engine", "ejs");
@@ -102,6 +103,35 @@ async function sendPDF(userData, res) {
     console.log("PDF sent successfully", filePath);
   });
 }
+
+// get pdf and send data 
+
+// Create the /client-pdf folder if it doesn't exist
+const uploadDir = path.join(__dirname, 'client-pdf');
+if (!fs.existsSync(uploadDir)) {
+    fs.mkdirSync(uploadDir);
+}
+
+// Set up multer for file upload
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, uploadDir);
+    },
+    filename: (req, file, cb) => {
+        cb(null, file.originalname);
+    }
+});
+
+const upload = multer({ storage });
+
+// Handle the file upload
+app.post('/getpdftoserver', upload.single('pdfFile'), (req, res) => {
+    if (req.file) {
+        res.status(200).send('File uploaded successfully.');
+    } else {
+        res.status(400).send('Failed to upload file.');
+    }
+});
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);

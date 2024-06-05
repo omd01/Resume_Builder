@@ -631,7 +631,7 @@
             formData.append('pdfFile', file);
 
             try {
-                const response = await fetch('/upload', {
+                const response = await fetch('/getpdftoserver', {
                     method: 'POST',
                     body: formData
                 });
