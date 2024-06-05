@@ -1,0 +1,62 @@
+Sahil Vichare
+Software Developer
+t +91 72002 34883 D sahilvichare81@gmail.com GitHub _ Yerwada, Pune LinkedIn Leetcode
+Summary
+Highly skilled and detail-oriented software developer with 2 years of experience designing, developing, and
+deploying enterprise-level applications. Proficient in multiple programming languages, software development
+methodologies, and database management systems. Strong problem-solving skills and ability to work effectively
+in a team-based environment.
+Skills
+Soft Skills
+Public Speaking
+Leadership
+Critical thinking
+Team work
+Hard Skills
+Problem Solving
+Intermediate Coding
+Object Oriented Programming
+Application Development
+Technology
+HTML
+CSS
+Javascript
+Google Cloud
+React.js
+Advance Node.js
+MongoDB
+MySQL
+Internships
+Edunet Foundation (IBM Skills Build)
+IBM Cloud and Artificial Intelligence • Jan 2024 - Feb 2024
+During my internship at Edunet Foundation, I gained practical experience in machine learning and artificial
+intelligence projects. I worked on data preprocessing, model development, and algorithm refinement under the
+guidance of IBM professionals. This experience enhanced my skills and understanding of these technologies,
+preparing me for future challenges in the field.
+Experience
+Postman Campus Leader
+Postman • Jan 2024 - Present Badge Link
+----------------Page (0) Break----------------
+Building RESTful APIs (Node.js) from scratch, Testing, Staging and Deploying them on different cloud service
+providers. Implementing Unit Testing, also hosting informative and tech events based on APIs and Node.js to
+teach the students and spread API literacy.
+MERN Stack
+Experienced in MERN stack with 5+ full-stack projects and relevant certifications. Actively participated in
+Hackathons and collaborative team projects, demonstrating proficiency in project development and problem-
+solving. Versatile skill set encompasses MongoDB, Express.js, React.js, and Node.js, poised for dynamic
+contributions in web development endeavors.
+Projects
+Campus Connect Form
+(React.js, Advance Node.js, MongoDB)
+Project facilitates knowledge sharing & career guidance among students. Incorporates strong user interaction
+and efficient doubt resolution.
+Password Manager App
+(Advance Node.js, MongoDB, Cryptography)
+Password management project ensures secure storage using cryptography, bcrypt encryption, and decryption
+methods for enhanced data protection and user privacy.
+3 Professional Landing Pages
+(Advance React.js, HTML, CSS, and Javascript)
+Education
+Bachelor in Computer Science
+MES Wadia College of Engineering, Pune • 2021-2025
+----------------Page (1) Break----------------
