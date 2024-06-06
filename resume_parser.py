@@ -15,6 +15,8 @@ def pdf_to_images(pdf_path):
 def ocr_images(images):
     text = ''
     for image in images:
+        # Manually set the DPI of each image
+        image.info['dpi'] = (300, 300)
         text += pytesseract.image_to_string(image)
     return text
 
