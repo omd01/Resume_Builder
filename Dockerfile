@@ -1,28 +1,23 @@
 # Use an official Node.js runtime as a parent image
-FROM node:20-slim
+FROM node:14
 
-# Set the working directory
-WORKDIR /usr/src/app
+# Set the working directory in the container
+WORKDIR /app
 
-# Install Python, pip, and tesseract-ocr
-RUN apt-get update && apt-get install -y python3 python3-pip tesseract-ocr
-
-# Install app dependencies
+# Copy package.json and install dependencies
 COPY package*.json ./
 RUN npm install
 
-# Copy the Python requirements file and install dependencies with --break-system-packages flag
-COPY requirements.txt ./
-RUN pip3 install --break-system-packages -r requirements.txt
+# Install Python and necessary packages
+RUN apt-get update && apt-get install -y tesseract-ocr python3-pip
+COPY requirements.txt .
+RUN pip3 install -r requirements.txt
 
-# Bundle app source
+# Copy the rest of the application code
 COPY . .
-
-# Set the Tesseract-OCR path
-ENV TESSERACT_PATH=/usr/bin/tesseract
 
 # Expose the port the app runs on
 EXPOSE 3000
 
-# Define the command to run the app
-CMD ["node", "server.js"]
+# Command to run the application
+CMD ["npm", "start"]
