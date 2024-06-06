@@ -1,13 +1,11 @@
 services:
   - type: web
-    name: linksus-resume
-    env: node
+    name: node-python-deploy
+    env: docker
     plan: free
-    buildCommand: "apt-get update && apt-get install -y tesseract-ocr && npm install && pip install -r requirements.txt"
-    startCommand: "node server.js"
+    dockerfilePath: ./Dockerfile
     envVars:
       - key: NODE_ENV
         value: production
       - key: TESSERACT_PATH
         value: /usr/bin/tesseract
-    runtime: node
