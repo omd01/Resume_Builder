@@ -20,6 +20,7 @@ const upload = multer({ dest: 'uploads/' });
 
 // Endpoint for uploading PDF and parsing
 app.post('/upload', upload.single('resumeFile'), (req, res) => {
+  console.log('Received file:', req.file.originalname);
   const filePath = req.file.path;
 
   const pythonScript = path.join(__dirname, 'resume_parser.py');
