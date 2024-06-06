@@ -514,7 +514,6 @@
     </div>
 
     <script>
-
       //   Send Resume Form
       document
         .getElementById("parsedForm")
@@ -584,7 +583,7 @@
             const blob = await response.blob();
             const link = document.createElement("a");
             link.href = URL.createObjectURL(blob);
-            link.download = data.name + ".pdf"; 
+            link.download = data.name + ".pdf";
             link.click();
             URL.revokeObjectURL(link.href);
           } else {
@@ -592,30 +591,88 @@
           }
         });
 
+      // Ensure the DOM is fully loaded before running the script
+      document.addEventListener("DOMContentLoaded", function () {
         document
-        .getElementById("resumeForm")
-        .addEventListener("submit", async function (event) {
-          event.preventDefault();
+          .getElementById("resumeForm")
+          .addEventListener("submit", async function (event) {
+            event.preventDefault();
 
-          const resumedata = new FormData(event.target);
-          const response = await fetch("/upload", {
-            method: "POST",
-            body: resumedata,
+            const resumedata = new FormData(event.target);
+            const response = await fetch("/upload", {
+              method: "POST",
+              body: resumedata,
+            });
+
+            const data = await response.json();
+            console.log("Data received:", data);
+
+            if (data.error) {
+              console.error("Error:", data.error);
+              return;
+            }
+
+            document.getElementById("name").value = data.name || "";
+            document.getElementById("email").value = data.email || "";
+            document.getElementById("phone").value = data.phone || "";
+            document.getElementById("softSkills").value = data.skills || "";
+            const education = data.education;
+            const experience = data.experience;
+            const projects = data.projects;
+
+            function setEducationValues(education) {
+              // Split the education string by new lines
+              const lines = education.split("\n");
+
+              // Extract institution and degree information
+              const institution1 = lines[0];
+              const degree1 = lines[1];
+
+              // Set the institution and degree values to the inputs
+              document.getElementById("educationInstitution").value =
+                institution1;
+              document.getElementById("educationDegree").value = degree1;
+            }
+            // Call the function with the provided education string
+            setEducationValues(education);
+
+            function setExperienceValues(experience) {
+              // Split the experience string by new lines
+              const lines = experience.split("\n");
+
+              // Extract company and position information
+              const company = lines[0];
+              const position = lines[1];
+              const description = lines.slice(2).join("\n");
+
+              // Set the company and position values to the inputs
+              document.getElementById("experienceCompany").value = company;
+              document.getElementById("experiencePosition").value = position;
+              document.getElementById("experienceDescription").value =
+                description;
+            }
+
+            setExperienceValues(experience);
+
+            function setProjectValues(projects) {
+              // Split the projects string by new lines and remove empty lines
+              const lines = projects
+                .split("\n")
+                .filter((line) => line.trim() !== "");
+
+              // Extract project name and description
+              const projectName = lines[0];
+              const projectDescription = lines.slice(1).join("\n"); // Join remaining lines as description
+
+              // Set the project name and description values to the inputs
+              document.getElementById("projectName").value = projectName;
+              document.getElementById("projectDescription").value =
+                projectDescription;
+            }
+
+            setProjectValues(projects);
           });
-          console.log("data send")
-          const data = await response.json();
-          console.log(data)
-          document.getElementById("name").value = data.name;
-        document.getElementById("email").value = data.email;
-        document.getElementById("phone").value = data.phone;
-        document.getElementById("education").value = data.education;
-        document.getElementById("experience").value = data.experience;
-        document.getElementById("projects").value = data.projects;
-        document.getElementById("skills").value = data.skills;
-        document.getElementById("certifications").value = data.certifications;
-        document.getElementById("publications").value = data.publications;
-        })
-
-    </script>
+      });
+    </script>
   </body>
 </html>
