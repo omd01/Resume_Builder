@@ -15,6 +15,66 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(bodyParser.urlencoded({ extended: true }));
 const templatePath = path.join(__dirname, "views/resume.ejs");
+const upload = multer({ dest: 'uploads/' });
+
+
+// Endpoint for uploading PDF and parsing
+app.post('/upload', upload.single('resumeFile'), (req, res) => {
+  const filePath = req.file.path;
+
+  const pythonScript = path.join(__dirname, 'resume_parser.py');
+
+const process = spawn('python', [pythonScript, filePath]);
+
+  // Collect data from Python script
+  let data = '';
+  let errorData = '';
+  process.stdout.on('data', (chunk) => {
+      data += chunk.toString();
+  });
+
+  process.stderr.on('data', (chunk) => {
+      errorData += chunk.toString();
+  });
+
+  // Handle Python script completion
+  process.on('close', (code) => {
+      if (code !== 0) {
+          console.error(`Python script exited with code ${code}`);
+          console.error(errorData);
+          res.status(500).send('Error parsing resume');
+          return;
+      }
+
+      try {
+          const parsedData = JSON.parse(data);
+          res.json(parsedData);
+      } catch (err) {
+          console.error('Error parsing JSON:', err);
+          console.error('Python script output:', data);
+          res.status(500).send('Invalid JSON output from Python script');
+      }
+
+      // Clean up the uploaded file
+      fs.unlink(filePath, (err) => {
+          if (err) {
+              console.error('Error deleting uploaded file:', err);
+          }
+      });
+  });
+});
+
+
+// Set up multer for file uploads
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'uploads/');
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname);
+  }
+});
+
 
 // Serve the HTML File
 app.get("/", (req, res) => {
@@ -25,6 +85,7 @@ app.get("/", (req, res) => {
 
 app.post("/formdata", async (req, res) => {
   try {
+    console.log("Received form data:", req.body);
     await createPDF(req.body, res);
   } catch (error) {
     console.error(error);
@@ -104,44 +165,14 @@ async function sendPDF(userData, res) {
     );
     res.send(data);
     console.log("PDF sent successfully", filePath);
+    fs.unlink(filePath, (err) => {
+      if (err) {
+        console.error("Error deleting PDF:", err);
+      }
+    });
+    console.log("PDF deleted successfully", filePath);
   });
 }
-
-
-const upload = multer({ dest: 'uploads/' });
-
-
-// Route to upload PDF and process it
-app.post('/upload', upload.single('pdf'), (req, res) => {
-  const pdfPath = req.file.path;
-  // const pythonScript = path.join(__dirname, 'resume_parser.py');
-
-  // const process = spawn('python', [pythonScript, pdfPath]);
-
-  // let scriptOutput = '';
-  // process.stdout.on('data', (data) => {
-  //   scriptOutput += data.toString();
-  // });
-
-  // process.stderr.on('data', (data) => {
-  //   console.error(`stderr: ${data}`);
-  // });
-
-  // process.on('close', (code) => {
-  //   console.log(`child process exited with code ${code}`);
-  //   fs.unlink(pdfPath, (err) => {
-  //     if (err) {
-  //       console.error(err);
-  //       return res.status(500).send('Error processing file');
-  //     }
-  //     res.send(scriptOutput);
-  //   });
-  // });
-});
-
-
-
-
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);

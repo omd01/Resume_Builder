@@ -8,6 +8,7 @@
   </head>
 
   <body class="p-2">
+    <div id="response"></div>
     <div class="container flex flex-col justify-center w-full">
       <header class="flex justify-center flex-col items-center pt-4">
         <h1 class="text-[#007bff] font-bold text-3xl">Resume Builder Pro</h1>
@@ -15,37 +16,35 @@
       </header>
 
       <main>
-        <section id="resume-upload" class="section">
-          <div class="max-w-md mx-auto p-3 md:max-w-3xl">
+        <section id="resume-upload" class="max-w-md mx-auto mt-7 px-3 md:max-w-3xl">
+          <form id="resumeForm" class="flex justify-between items-center">
+            <div class="w-full mr-3">
             <label
-              for="dropzone-file"
-              class="flex flex-col items-center justify-center w-full h-52 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100"
+              class="block mb-2 text-sm font-medium text-[#007bff]"
+              for="file_input"
+              >Upload Resume to make it better</label
             >
-              <div class="flex flex-col items-center justify-center pt-5 pb-6">
-                <svg
-                  class="w-8 h-8 mb-4 text-gray-500"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 20 16"
-                >
-                  <path
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
-                  />
-                </svg>
-                <p class="mb-2 text-sm text-gray-500">
-                  <span class="font-semibold">Click to upload</span> or drag and
-                  drop
-                </p>
-                <p class="text-xs text-gray-500">PDF Only</p>
-              </div>
-              <input id="dropzone-file" type="file" class="hidden" />
-            </label>
+            <input
+              class=" w-full  text-gray-500 border border-gray-300 rounded-lg cursor-pointer bg-gray-50  "
+              id="resumeFile"
+              name="resumeFile"
+              accept=".pdf"
+              aria-describedby="file_input_help"
+              type="file"
+            />
+            <p
+              class="mt-1 text-sm text-gray-500 dark:text-gray-300"
+              id="file_input_help"
+            >
+              Only PDF
+            </p>
           </div>
+            <button
+              type="submit" onclick="uploadResume()"
+              class="text-white h-8 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 text-center">
+              Upload
+            </button>
+          </form>
         </section>
         <form
           class="max-w-md mx-auto p-3 md:max-w-3xl"
@@ -53,7 +52,7 @@
           method="post"
           id="resumeForm"
         >
-          <h2 class="py-4 text-2xl">Resume Form</h2>
+          <h2 class="pb-3 text-2xl">Resume Form</h2>
 
           <div class="relative z-0 w-full mb-5 group">
             <label
@@ -65,6 +64,21 @@
               type="text"
               name="name"
               id="name"
+              class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=" "
+              required
+            />
+          </div>
+          <div class="relative z-0 w-full mb-5 group">
+            <label
+              for="title"
+              class="block mb-2 text-sm font-medium text-gray-900"
+              >Title</label
+            >
+            <input
+              type="text"
+              name="title"
+              id="title"
               class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
               placeholder=" "
               required
@@ -576,38 +590,63 @@
             console.error("Failed to download PDF:", response.statusText);
           }
         });
-   
-          // Send Pdf to get Data 
-    document.getElementById('dropzone-file').addEventListener('change', async (event) => {
-            const fileInput = event.target;
-            const file = fileInput.files[0];
 
-            if (file.type !== 'application/pdf') {
-                alert('Please select a PDF file.');
-                return;
-            }
-
-            const formData = new FormData();
-            formData.append('pdfFile', file);
-
-            try {
-                const response = await fetch('/upload', {
-                    method: 'POST',
-                    body: formData
-                });
-
-                if (response.ok) {
-                    alert('PDF uploaded successfully!');
-                } else {
-                    alert('Failed to upload PDF.');
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                alert('Error uploading PDF.');
-            }
+      async function uploadResume() {
+        const form = document.getElementById("resumeForm");
+        const formData = new FormData(form);
+        const response = await fetch("/upload", {
+          method: "POST",
+          body: formData,
         });
-    
-   
-   </script>
+        const data = await response.json();
+        document.getElementById("name").value = data.name;
+        document.getElementById("email").value = data.email;
+        document.getElementById("phone").value = data.phone;
+        document.getElementById("education").value = data.education;
+        document.getElementById("experience").value = data.experience;
+        document.getElementById("projects").value = data.projects;
+        document.getElementById("skills").value = data.skills;
+        document.getElementById("certifications").value = data.certifications;
+        document.getElementById("publications").value = data.publications;
+      }
+
+      // function fillFormWithData(data) {
+      //     document.getElementById('name').value = data.name;
+      //     document.getElementById('phone').value = data.phone;
+      //     document.getElementById('email').value = data.email;
+      //     document.getElementById('location').value = data.location;
+      //     document.getElementById('github').value = data.github;
+      //     document.getElementById('linkedin').value = data.linkedin;
+      //     document.getElementById('leetcode').value = data.leetcode;
+      //     document.getElementById('summary').value = data.summary;
+
+      //     // Skills
+      //     document.getElementById('softSkills').value = data.skills.soft.join(',');
+      //     document.getElementById('hardSkills').value = data.skills.hard.join(',');
+      //     document.getElementById('technologySkills').value = data.skills.technology.join(',');
+
+      //     // Education
+      //     document.getElementById('educationDegree').value = data.education.degree;
+      //     document.getElementById('educationInstitution').value = data.education.institution;
+
+      //     // Internships
+      //     document.getElementById('internshipName').value = data.internships[0].name;
+      //     document.getElementById('internshipPosition').value = data.internships[0].position;
+      //     document.getElementById('internshipDuration').value = data.internships[0].duration;
+      //     document.getElementById('internshipDescription').value = data.internships[0].description;
+
+      //     // Experience
+      //     document.getElementById('experiencePosition').value = data.experience[0].position;
+      //     document.getElementById('experienceCompany').value = data.experience[0].company;
+      //     document.getElementById('experienceDuration').value = data.experience[0].duration;
+      //     document.getElementById('experienceBadgeLink').value = data.experience[0].badgeLink;
+      //     document.getElementById('experienceDescription').value = data.experience[0].description;
+
+      //     // Projects
+      //     document.getElementById('projectName').value = data.projects[0].name;
+      //     document.getElementById('projectTechnology').value = data.projects[0].technology;
+      //     document.getElementById('projectDescription').value = data.projects[0].description;
+      // }
+    </script>
   </body>
 </html>
