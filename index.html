@@ -17,7 +17,7 @@
 
       <main>
         <section id="resume-upload" class="max-w-md mx-auto mt-7 px-3 md:max-w-3xl">
-          <form id="resumeForm" class="flex justify-between items-center">
+          <form id="resumeForm" class="flex justify-between items-center" action="/upload" method="post">
             <div class="w-full mr-3">
             <label
               class="block mb-2 text-sm font-medium text-[#007bff]"
@@ -40,7 +40,7 @@
             </p>
           </div>
             <button
-              type="submit" onclick="uploadResume()"
+              type="submit" name="uploadpdf" id="uploadpdf"
               class="text-white h-8 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 text-center">
               Upload
             </button>
@@ -50,7 +50,7 @@
           class="max-w-md mx-auto p-3 md:max-w-3xl"
           action="/formdata"
           method="post"
-          id="resumeForm"
+          id="parsedForm"
         >
           <h2 class="pb-3 text-2xl">Resume Form</h2>
 
@@ -514,9 +514,10 @@
     </div>
 
     <script>
+
       //   Send Resume Form
       document
-        .getElementById("resumeForm")
+        .getElementById("parsedForm")
         .addEventListener("submit", async function (event) {
           event.preventDefault();
 
@@ -583,7 +584,7 @@
             const blob = await response.blob();
             const link = document.createElement("a");
             link.href = URL.createObjectURL(blob);
-            link.download = data.name + ".pdf";
+            link.download = data.name + ".pdf"; 
             link.click();
             URL.revokeObjectURL(link.href);
           } else {
@@ -591,15 +592,20 @@
           }
         });
 
-      async function uploadResume() {
-        const form = document.getElementById("resumeForm");
-        const formData = new FormData(form);
-        const response = await fetch("/upload", {
-          method: "POST",
-          body: formData,
-        });
-        const data = await response.json();
-        document.getElementById("name").value = data.name;
+        document
+        .getElementById("resumeForm")
+        .addEventListener("submit", async function (event) {
+          event.preventDefault();
+
+          const resumedata = new FormData(event.target);
+          const response = await fetch("/upload", {
+            method: "POST",
+            body: resumedata,
+          });
+          console.log("data send")
+          const data = await response.json();
+          console.log(data)
+          document.getElementById("name").value = data.name;
         document.getElementById("email").value = data.email;
         document.getElementById("phone").value = data.phone;
         document.getElementById("education").value = data.education;
@@ -608,45 +614,8 @@
         document.getElementById("skills").value = data.skills;
         document.getElementById("certifications").value = data.certifications;
         document.getElementById("publications").value = data.publications;
-      }
+        })
 
-      // function fillFormWithData(data) {
-      //     document.getElementById('name').value = data.name;
-      //     document.getElementById('phone').value = data.phone;
-      //     document.getElementById('email').value = data.email;
-      //     document.getElementById('location').value = data.location;
-      //     document.getElementById('github').value = data.github;
-      //     document.getElementById('linkedin').value = data.linkedin;
-      //     document.getElementById('leetcode').value = data.leetcode;
-      //     document.getElementById('summary').value = data.summary;
-
-      //     // Skills
-      //     document.getElementById('softSkills').value = data.skills.soft.join(',');
-      //     document.getElementById('hardSkills').value = data.skills.hard.join(',');
-      //     document.getElementById('technologySkills').value = data.skills.technology.join(',');
-
-      //     // Education
-      //     document.getElementById('educationDegree').value = data.education.degree;
-      //     document.getElementById('educationInstitution').value = data.education.institution;
-
-      //     // Internships
-      //     document.getElementById('internshipName').value = data.internships[0].name;
-      //     document.getElementById('internshipPosition').value = data.internships[0].position;
-      //     document.getElementById('internshipDuration').value = data.internships[0].duration;
-      //     document.getElementById('internshipDescription').value = data.internships[0].description;
-
-      //     // Experience
-      //     document.getElementById('experiencePosition').value = data.experience[0].position;
-      //     document.getElementById('experienceCompany').value = data.experience[0].company;
-      //     document.getElementById('experienceDuration').value = data.experience[0].duration;
-      //     document.getElementById('experienceBadgeLink').value = data.experience[0].badgeLink;
-      //     document.getElementById('experienceDescription').value = data.experience[0].description;
-
-      //     // Projects
-      //     document.getElementById('projectName').value = data.projects[0].name;
-      //     document.getElementById('projectTechnology').value = data.projects[0].technology;
-      //     document.getElementById('projectDescription').value = data.projects[0].description;
-      // }
     </script>
   </body>
 </html>

@@ -49,6 +49,7 @@ const process = spawn('python', [pythonScript, filePath]);
       try {
           const parsedData = JSON.parse(data);
           res.json(parsedData);
+          console.log('data sent', parsedData)
       } catch (err) {
           console.error('Error parsing JSON:', err);
           console.error('Python script output:', data);
