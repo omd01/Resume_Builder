@@ -8,7 +8,7 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 
-# Install Python, Poppler, and necessary packages
+# Install Python, Poppler, Tesseract, and necessary packages
 RUN apt-get update && apt-get install -y tesseract-ocr python3-pip poppler-utils
 COPY requirements.txt .
 RUN pip3 install -r requirements.txt
