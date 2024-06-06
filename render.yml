@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: linksus-resume
+    env: node
+    plan: free
+    buildCommand: "apt-get update && apt-get install -y tesseract-ocr && npm install && pip install -r requirements.txt"
+    startCommand: "node server.js"
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: TESSERACT_PATH
+        value: /usr/bin/tesseract
+    runtime: node
