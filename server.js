@@ -108,6 +108,7 @@ async function createPDF(userData, res) {
     try {
       console.log("Launching browser...");
       browser = await puppeteer.launch({
+        executablePath: '/usr/bin/chromium-browser',
         headless: true,
         timeout: 60000, // 60 seconds
         args: ["--no-sandbox", "--disable-setuid-sandbox"],
