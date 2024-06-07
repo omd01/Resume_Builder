@@ -7,52 +7,164 @@
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
 
-  <body class="p-2 ">
-    <div id="response"></div>
-    <div class="container flex flex-col justify-center w-full">
+  <body class="">
+    <div
+      class="h-full w-screen bg-[#0271bb]/[.850] z-20 fixed justify-center items-center hidden"
+      id="fullscreenAlert"
+    >
+      <div
+        class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow"
+      >
+        <p class="mb-3 font-normal text-gray-700">Powered by LinksUS</p>
+        <a href="#">
+          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">
+            Resume Builder Pro
+          </h5>
+        </a>
+        <p class="mb-3 font-normal text-gray-700">
+          To gain industry experience and proof of work visit our official
+          handle linksus.in
+        </p>
+        <a
+          href="#"
+          class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
+        >
+          Read more
+          <svg
+            class="rtl:rotate-180 w-3.5 h-3.5 ms-2"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 14 10"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M1 5h12m0 0L9 1m4 4L9 9"
+            />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div
+      class="h-full w-screen bg-[#0271bb]/[.850] z-20 fixed justify-center items-center flex"
+      id="fullscreenAlert"
+    >
+      <div
+        class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow"
+      >
+        <img class="h-7 text-gray-500 mb-3" src="assets/Logo.png" />
+
+        <a href="https://linksus.in/">
+          <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900">
+            You stuck in the basic curriculum of college?
+          </h5>
+        </a>
+        <p class="mb-3 font-normal text-gray-500">
+          To solve your issue with our site where we provide 
+        </p>
+        <a
+          href="https://linksus.in/"
+          class="inline-flex font-medium items-center text-blue-600 hover:underline"
+        >
+          Visit LinksUS
+          <svg
+            class="w-3 h-3 ms-2.5 rtl:rotate-[270deg]"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 18 18"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778"
+            />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="container flex flex-col justify-center w-full p-2">
       <header class="flex justify-center flex-col items-center pt-4">
         <h1 class="text-[#007bff] font-bold text-3xl">Resume Builder Pro</h1>
-        <a href="https://linksus.in/"><p class="text-[#007bff] font-semibold text-lg">Powered By <span class="font-bold">LinksUS</span></p></a>
+        <a href="https://linksus.in/"
+          ><p class="text-[#007bff] font-semibold text-lg">
+            Powered By <span class="font-bold">LinksUS</span>
+          </p></a
+        >
       </header>
 
-      <main>
-        <section id="resume-upload" class="max-w-md mx-auto mt-7 px-3 md:max-w-3xl">
-          <form id="resumeForm" class="flex justify-between items-center" action="/upload" method="post">
+      <main class="p-2">
+        <!-- <section
+          id="resume-upload"
+          class="max-w-md mx-auto mt-7 px-3 md:max-w-3xl"
+        >
+          <form
+            id="resumeForm"
+            class="flex justify-between items-center"
+            action="/upload"
+            method="post"
+          >
             <div class="w-full mr-3">
-            <label
-              class="block mb-2 text-sm font-medium text-[#007bff]"
-              for="file_input"
-              >Upload Resume to make it better</label
-            >
-            <input
-              class=" w-full  text-gray-500 border border-gray-300 rounded-lg cursor-pointer bg-gray-50  "
-              id="resumeFile"
-              name="resumeFile"
-              accept=".pdf"
-              aria-describedby="file_input_help"
-              type="file"
-            />
-            <p
-              class="mt-1 text-sm text-gray-500 dark:text-gray-300"
-              id="file_input_help"
-            >
-              Only PDF
-            </p>
-          </div>
+              <label
+                class="block mb-2 text-sm font-medium text-[#007bff]"
+                for="file_input"
+                >Upload Resume to make it better</label
+              >
+              <input
+                class="w-full text-gray-500 border border-gray-300 rounded-lg cursor-pointer bg-gray-50"
+                id="resumeFile"
+                name="resumeFile"
+                accept=".pdf"
+                aria-describedby="file_input_help"
+                type="file"
+              />
+              <p
+                class="mt-1 text-sm text-gray-500 dark:text-gray-300"
+                id="file_input_help"
+              >
+                Only PDF
+              </p>
+            </div>
             <button
-              type="submit" name="uploadpdf" id="uploadpdf"
-              class="text-white h-8 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 text-center">
+              type="submit"
+              name="uploadpdf"
+              id="uploadpdf"
+              class="text-white h-8 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 text-center"
+            >
               Upload
             </button>
           </form>
-        </section>
+          <div
+            class="alert my-2 text-white"
+            style="display: none"
+            id="alertresumeupload"
+          >
+            <span
+              class="closebtn"
+              onclick="this.parentElement.style.display='none';"
+              >&times;</span
+            >
+            By uploading the resume the inputs will get auto filled in 5-6
+            seconds. But sometimes it can make mistakes so you also have to
+            manually check and fill it
+          </div>
+        </section> -->
         <form
           class="max-w-md mx-auto p-3 md:max-w-3xl"
           action="/formdata"
           method="post"
           id="parsedForm"
         >
-          <h2 class="pb-3 text-2xl">Resume Form</h2>
+          <h2 class="pb-3 text-2xl">
+            Build ATS frendly resume by filling below form
+          </h2>
 
           <div class="relative z-0 w-full mb-5 group">
             <label
@@ -207,46 +319,15 @@
 
           <div class="relative z-0 w-full mb-5 group">
             <label
-              for="softSkills"
+              for="skills"
               class="block mb-2 text-sm font-medium text-gray-900"
-              >Soft Skills ( seprate by comma ',' )</label
+            >
+              Skills ( seprate by comma ',' )</label
             >
             <input
               type="text"
-              name="softSkills"
-              id="softSkills"
-              class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-              placeholder=" "
-              required
-            />
-          </div>
-
-          <div class="relative z-0 w-full mb-5 group">
-            <label
-              for="hardSkills"
-              class="block mb-2 text-sm font-medium text-gray-900"
-              >Hard Skills</label
-            >
-            <input
-              type="text"
-              name="hardSkills"
-              id="hardSkills"
-              class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-              placeholder=" "
-              required
-            />
-          </div>
-
-          <div class="relative z-0 w-full mb-5 group">
-            <label
-              for="technologySkills"
-              class="block mb-2 text-sm font-medium text-gray-900"
-              >Technology Skills</label
-            >
-            <input
-              type="text"
-              name="technologySkills"
-              id="technologySkills"
+              name="skills"
+              id="skills"
               class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
               placeholder=" "
               required
@@ -514,6 +595,11 @@
     </div>
 
     <script>
+      const fullscreenAlert = document.getElementById("fullscreenAlert");
+
+      fullscreenAlert.addEventListener("click", () => {
+        fullscreenAlert.style.display = "none";
+      });
       //   Send Resume Form
       document
         .getElementById("parsedForm")
@@ -532,11 +618,7 @@
             linkedin: formData.get("linkedin"),
             leetcode: formData.get("leetcode"),
             summary: formData.get("summary"),
-            skills: {
-              soft: formData.get("softSkills").split(","),
-              hard: formData.get("hardSkills").split(","),
-              technology: formData.get("technologySkills").split(","),
-            },
+            skills: formData.get("skills").split(","),
             internships: [
               {
                 name: formData.get("internshipName"),
@@ -576,10 +658,9 @@
             body: JSON.stringify(data),
           });
 
-          alert("form sent successfully");
+          // alert("form sent successfully");
           if (response.ok) {
-            console.log("PDF generated successfully");
-            console.log(response);
+            fullscreenAlert.style.display = "flex";
             const blob = await response.blob();
             const link = document.createElement("a");
             link.href = URL.createObjectURL(blob);
@@ -590,89 +671,6 @@
             console.error("Failed to download PDF:", response.statusText);
           }
         });
-
-      // Ensure the DOM is fully loaded before running the script
-      document.addEventListener("DOMContentLoaded", function () {
-        document
-          .getElementById("resumeForm")
-          .addEventListener("submit", async function (event) {
-            event.preventDefault();
-
-            const resumedata = new FormData(event.target);
-            const response = await fetch("/upload", {
-              method: "POST",
-              body: resumedata,
-            });
-
-            const data = await response.json();
-            console.log("Data received:", data);
-
-            if (data.error) {
-              console.error("Error:", data.error);
-              return;
-            }
-
-            document.getElementById("name").value = data.name || "";
-            document.getElementById("email").value = data.email || "";
-            document.getElementById("phone").value = data.phone || "";
-            document.getElementById("softSkills").value = data.skills || "";
-            const education = data.education;
-            const experience = data.experience;
-            const projects = data.projects;
-
-            function setEducationValues(education) {
-              // Split the education string by new lines
-              const lines = education.split("\n");
-
-              // Extract institution and degree information
-              const institution1 = lines[0];
-              const degree1 = lines[1];
-
-              // Set the institution and degree values to the inputs
-              document.getElementById("educationInstitution").value =
-                institution1;
-              document.getElementById("educationDegree").value = degree1;
-            }
-            // Call the function with the provided education string
-            setEducationValues(education);
-
-            function setExperienceValues(experience) {
-              // Split the experience string by new lines
-              const lines = experience.split("\n");
-
-              // Extract company and position information
-              const company = lines[0];
-              const position = lines[1];
-              const description = lines.slice(2).join("\n");
-
-              // Set the company and position values to the inputs
-              document.getElementById("experienceCompany").value = company;
-              document.getElementById("experiencePosition").value = position;
-              document.getElementById("experienceDescription").value =
-                description;
-            }
-
-            setExperienceValues(experience);
-
-            function setProjectValues(projects) {
-              // Split the projects string by new lines and remove empty lines
-              const lines = projects
-                .split("\n")
-                .filter((line) => line.trim() !== "");
-
-              // Extract project name and description
-              const projectName = lines[0];
-              const projectDescription = lines.slice(1).join("\n"); // Join remaining lines as description
-
-              // Set the project name and description values to the inputs
-              document.getElementById("projectName").value = projectName;
-              document.getElementById("projectDescription").value =
-                projectDescription;
-            }
-
-            setProjectValues(projects);
-          });
-      });
-    </script>
+    </script>
   </body>
 </html>

@@ -6,14 +6,14 @@
     <title><%= name %> - Resume</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="p-5">
+<body class="p-5 text-sm">
     <div class="resume-container">
         <header>
             <div class="w-full flex flex-col items-center ">
-                <h1 class="text-2xl font-semibold py-1"><%= name %></h1>
+                <h1 class="text-lg font-semibold py-1"><%= name %></h1>
                 <p class="text-base font-semibold py-1"><%= title %></p>
             </div>
-            <div class=" w-full py-1 flex justify-center">
+            <div class=" w-full py-1 flex text-sm justify-center">
                 <span class="px-2 mb-3 mr-1 border-r-2"><%= phone %></span>
                 <span class="px-2 mb-3 mr-1 border-r-2"><%= email %></span>
                 <span class="px-2 mb-3 mr-1 border-r-2"><a href="<%= github %>">GitHub</a></span>
@@ -32,7 +32,8 @@
             <% experience.forEach(function(exp) { %>
                 <div class="flex items-center w-full justify-between pb-1">
                     <div>
-                        <h3 class="text-lg font-semibold"><%= exp.company %></h3>
+                        <h3 class="text-base
+                         font-semibold"><%= exp.company %></h3>
                         <p><%= exp.position %></p>
                     </div>
                     <div>
@@ -49,7 +50,7 @@
             <h2 class="text-base font-medium border-b-2 mb-3">EDUCATION</h2>
             <div class="flex items-center w-full justify-between pb-1">
                 <div>
-                    <h3 class="text-lg font-semibold"><%= education.degree %></h3>
+                    <h3 class="text-base font-semibold"><%= education.degree %></h3>
                     <p><%= education.institution %></p>
                 </div>
                 <div>
@@ -62,7 +63,7 @@
             <% internships.forEach(function(internship) { %>
                 <div class="flex items-center w-full justify-between pb-1">
                     <div>
-                        <h3 class="text-lg font-semibold"><%= internship.name %></h3>
+                        <h3 class="text-base font-semibold"><%= internship.name %></h3>
                         <p><%= internship.position %></p>
                     </div>
                     <div>
@@ -77,7 +78,7 @@
             <% projects.forEach(function(project) { %>
                 <div class="mb-3">
                     <% if (project.name) { %>
-                        <h3 class="text-lg font-semibold"><%= project.name %></h3>
+                        <h3 class="text-base font-semibold"><%= project.name %></h3>
                     <% } %>
                     <p><%= project.technology %></p>
                     <p class="pl-2"><%= project.description %></p>
@@ -88,15 +89,10 @@
             <h3 class="text-base font-medium border-b-2 mb-2">OTHER</h3>
             <div class="skills-container flex flex-col justify-evenly">
                 <div>
-                    <li class="text-base font-medium">Soft Skills: 
-                        <span class="font-normal"><%= skills.soft.join(", ") %></span>
+                    <li class="text-base font-medium"> Skills: 
+                        <span class="font-normal text-sm"><%= skills.join(", ") %></span>
                     </li>
-                    <li class="text-base font-medium">Hard Skills: 
-                        <span class="font-normal"><%= skills.hard.join(", ") %></span>
-                    </li>
-                    <li class="text-base font-medium">Technical Skills: 
-                        <span class="font-normal"><%= skills.technology.join(", ") %></span>
-                    </li>
+                    
                 </div>
             </div>
         </section>
