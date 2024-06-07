@@ -8,49 +8,9 @@
   </head>
 
   <body class="">
-    <div
-      class="h-full w-screen bg-[#0271bb]/[.850] z-20 fixed justify-center items-center hidden"
-      id="fullscreenAlert"
-    >
-      <div
-        class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow"
-      >
-        <p class="mb-3 font-normal text-gray-700">Powered by LinksUS</p>
-        <a href="#">
-          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">
-            Resume Builder Pro
-          </h5>
-        </a>
-        <p class="mb-3 font-normal text-gray-700">
-          To gain industry experience and proof of work visit our official
-          handle linksus.in
-        </p>
-        <a
-          href="#"
-          class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
-        >
-          Read more
-          <svg
-            class="rtl:rotate-180 w-3.5 h-3.5 ms-2"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 14 10"
-          >
-            <path
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M1 5h12m0 0L9 1m4 4L9 9"
-            />
-          </svg>
-        </a>
-      </div>
-    </div>
 
     <div
-      class="h-full w-screen bg-[#0271bb]/[.850] z-20 fixed justify-center items-center flex"
+      class="h-full w-screen bg-[#0271bb]/[.850] z-20 fixed justify-center items-center hidden "
       id="fullscreenAlert"
     >
       <div
@@ -60,11 +20,11 @@
 
         <a href="https://linksus.in/">
           <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900">
-            You stuck in the basic curriculum of college?
+            Are you lacking real world industry experience?
           </h5>
         </a>
         <p class="mb-3 font-normal text-gray-500">
-          To solve your issue with our site where we provide 
+          LinksUs provide an engaging environment for undergraduates and companies to get involved and bridge the gap of pre industry experience and proof of work. Visit our website and Elevate your career today!
         </p>
         <a
           href="https://linksus.in/"
@@ -628,6 +588,13 @@
               },
             ],
             experience: [
+              {
+                position: formData.get("experiencePosition"),
+                company: formData.get("experienceCompany"),
+                duration: formData.get("experienceDuration"),
+                badgeLink: formData.get("experienceBadgeLink"),
+                description: formData.get("experienceDescription"),
+              },
               {
                 position: formData.get("experiencePosition"),
                 company: formData.get("experienceCompany"),
