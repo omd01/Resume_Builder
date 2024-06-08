@@ -89,8 +89,14 @@
             <h3 class="text-base font-medium border-b-2 mb-2">OTHER</h3>
             <div class="skills-container flex flex-col justify-evenly">
                 <div>
-                    <li class="text-base font-medium"> Skills: 
-                        <span class="font-normal text-sm"><%= skills.join(", ") %></span>
+                    <li class="text-sm font-medium">Soft Skills: 
+                        <span class="font-normal"><%= skills.soft.join(", ") %></span>
+                    </li>
+                    <li class="text-sm font-medium">Hard Skills: 
+                        <span class="font-normal"><%= skills.hard.join(", ") %></span>
+                    </li>
+                    <li class="text-sm font-medium">Technical Skills: 
+                        <span class="font-normal"><%= skills.technology.join(", ") %></span>
                     </li>
                     
                 </div>

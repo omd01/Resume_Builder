@@ -19,62 +19,62 @@ const upload = multer({ dest: 'uploads/' });
 
 
 // Endpoint for uploading PDF and parsing
-app.post('/upload', upload.single('resumeFile'), (req, res) => {
-  const filePath = req.file.path;
+// app.post('/upload', upload.single('resumeFile'), (req, res) => {
+//   const filePath = req.file.path;
 
-  const pythonScript = path.join(__dirname, 'resume_parser.py');
+//   const pythonScript = path.join(__dirname, 'resume_parser.py');
 
-const process = spawn('python', [pythonScript, filePath]);
+// const process = spawn('python', [pythonScript, filePath]);
 
-  // Collect data from Python script
-  let data = '';
-  let errorData = '';
-  process.stdout.on('data', (chunk) => {
-      data += chunk.toString();
-  });
+//   // Collect data from Python script
+//   let data = '';
+//   let errorData = '';
+//   process.stdout.on('data', (chunk) => {
+//       data += chunk.toString();
+//   });
 
-  process.stderr.on('data', (chunk) => {
-      errorData += chunk.toString();
-  });
+//   process.stderr.on('data', (chunk) => {
+//       errorData += chunk.toString();
+//   });
 
-  // Handle Python script completion
-  process.on('close', (code) => {
-      if (code !== 0) {
-          console.error(`Python script exited with code ${code}`);
-          console.error(errorData);
-          res.status(500).send('Error parsing resume');
-          return;
-      }
+//   // Handle Python script completion
+//   process.on('close', (code) => {
+//       if (code !== 0) {
+//           console.error(`Python script exited with code ${code}`);
+//           console.error(errorData);
+//           res.status(500).send('Error parsing resume');
+//           return;
+//       }
 
-      try {
-          const parsedData = JSON.parse(data);
-          res.json(parsedData);
-          console.log('data sent', parsedData)
-      } catch (err) {
-          console.error('Error parsing JSON:', err);
-          console.error('Python script output:', data);
-          res.status(500).send('Invalid JSON output from Python script');
-      }
+//       try {
+//           const parsedData = JSON.parse(data);
+//           res.json(parsedData);
+//           console.log('data sent', parsedData)
+//       } catch (err) {
+//           console.error('Error parsing JSON:', err);
+//           console.error('Python script output:', data);
+//           res.status(500).send('Invalid JSON output from Python script');
+//       }
 
-      // Clean up the uploaded file
-      fs.unlink(filePath, (err) => {
-          if (err) {
-              console.error('Error deleting uploaded file:', err);
-          }
-      });
-  });
-});
+//       // Clean up the uploaded file
+//       fs.unlink(filePath, (err) => {
+//           if (err) {
+//               console.error('Error deleting uploaded file:', err);
+//           }
+//       });
+//   });
+// });
 
 
 // Set up multer for file uploads
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, 'uploads/');
-  },
-  filename: function (req, file, cb) {
-    cb(null, file.originalname);
-  }
-});
+// const storage = multer.diskStorage({
+//   destination: function (req, file, cb) {
+//     cb(null, 'uploads/');
+//   },
+//   filename: function (req, file, cb) {
+//     cb(null, file.originalname);
+//   }
+// });
 
 
 // Serve the HTML File
@@ -108,7 +108,7 @@ async function createPDF(userData, res) {
     try {
       console.log("Launching browser...");
       browser = await puppeteer.launch({
-        // executablePath: '/usr/bin/chromium-browser',
+      // executablePath: '/usr/bin/chromium-browser',
         headless: true,
         timeout: 60000, // 60 seconds
         args: ["--no-sandbox", "--disable-setuid-sandbox"],

@@ -8,16 +8,22 @@
   </head>
 
   <body class="">
-
+    <!-- Full Screen Banner  -->
     <div
-      class="h-full w-screen bg-[#0271bb]/[.850] z-20 fixed justify-center items-center hidden "
+      class="h-full w-screen bg-[#0271bb]/[.850] z-20 fixed justify-center items-center flex "
       id="fullscreenAlert"
     >
       <div
         class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow"
       >
-        <img class="h-7 text-gray-500 mb-3" src="assets/Logo.png" />
-
+     
+        
+      </p>
+        <img class="h-7 text-gray-500 mb-3" src="https://linksus.in/images/LinksUs%20Logo.png" alt="Logo" >
+       
+        <p class="mb-3  font-semibold text-green-600">
+          Your resume is being generated...
+        </p>
         <a href="https://linksus.in/">
           <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900">
             Are you lacking real world industry experience?
@@ -61,61 +67,6 @@
       </header>
 
       <main class="p-2">
-        <!-- <section
-          id="resume-upload"
-          class="max-w-md mx-auto mt-7 px-3 md:max-w-3xl"
-        >
-          <form
-            id="resumeForm"
-            class="flex justify-between items-center"
-            action="/upload"
-            method="post"
-          >
-            <div class="w-full mr-3">
-              <label
-                class="block mb-2 text-sm font-medium text-[#007bff]"
-                for="file_input"
-                >Upload Resume to make it better</label
-              >
-              <input
-                class="w-full text-gray-500 border border-gray-300 rounded-lg cursor-pointer bg-gray-50"
-                id="resumeFile"
-                name="resumeFile"
-                accept=".pdf"
-                aria-describedby="file_input_help"
-                type="file"
-              />
-              <p
-                class="mt-1 text-sm text-gray-500 dark:text-gray-300"
-                id="file_input_help"
-              >
-                Only PDF
-              </p>
-            </div>
-            <button
-              type="submit"
-              name="uploadpdf"
-              id="uploadpdf"
-              class="text-white h-8 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 text-center"
-            >
-              Upload
-            </button>
-          </form>
-          <div
-            class="alert my-2 text-white"
-            style="display: none"
-            id="alertresumeupload"
-          >
-            <span
-              class="closebtn"
-              onclick="this.parentElement.style.display='none';"
-              >&times;</span
-            >
-            By uploading the resume the inputs will get auto filled in 5-6
-            seconds. But sometimes it can make mistakes so you also have to
-            manually check and fill it
-          </div>
-        </section> -->
         <form
           class="max-w-md mx-auto p-3 md:max-w-3xl"
           action="/formdata"
@@ -123,7 +74,7 @@
           id="parsedForm"
         >
           <h2 class="pb-3 text-2xl">
-            Build ATS frendly resume by filling below form
+            Build ATS frendly resume by filling the form
           </h2>
 
           <div class="relative z-0 w-full mb-5 group">
@@ -268,31 +219,64 @@
             ></textarea>
           </div>
 
-          <!-- Skills -->
+                <!-- Skills -->
 
-          <div class="flex items-center py-6">
-            <div class="">
-              <h2 class="text-lg mr-5">skills</h2>
-            </div>
-            <div class="h-[2px] bg-slate-300 w-full"></div>
-          </div>
+                <div class="flex items-center py-6">
+                  <div class="">
+                    <h2 class="text-lg mr-5">skills</h2>
+                  </div>
+                  <div class="h-[2px] bg-slate-300 w-full"></div>
+                </div>
+      
+                <div class="relative z-0 w-full mb-5 group">
+                  <label
+                    for="softSkills"
+                    class="block mb-2 text-sm font-medium text-gray-900"
+                    >Soft Skills ( seprate by comma ',' )</label
+                  >
+                  <input
+                    type="text"
+                    name="softSkills"
+                    id="softSkills"
+                    class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    placeholder=" "
+                    required
+                  />
+                </div>
+      
+                <div class="relative z-0 w-full mb-5 group">
+                  <label
+                    for="hardSkills"
+                    class="block mb-2 text-sm font-medium text-gray-900"
+                    >Hard Skills</label
+                  >
+                  <input
+                    type="text"
+                    name="hardSkills"
+                    id="hardSkills"
+                    class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    placeholder=" "
+                    required
+                  />
+                </div>
+      
+                <div class="relative z-0 w-full mb-5 group">
+                  <label
+                    for="technologySkills"
+                    class="block mb-2 text-sm font-medium text-gray-900"
+                    >Technology Skills</label
+                  >
+                  <input
+                    type="text"
+                    name="technologySkills"
+                    id="technologySkills"
+                    class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    placeholder=" "
+                    required
+                  />
+                </div>
 
-          <div class="relative z-0 w-full mb-5 group">
-            <label
-              for="skills"
-              class="block mb-2 text-sm font-medium text-gray-900"
-            >
-              Skills ( seprate by comma ',' )</label
-            >
-            <input
-              type="text"
-              name="skills"
-              id="skills"
-              class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-              placeholder=" "
-              required
-            />
-          </div>
+          
 
           <!-- Education -->
 
@@ -560,12 +544,13 @@
       fullscreenAlert.addEventListener("click", () => {
         fullscreenAlert.style.display = "none";
       });
+     
       //   Send Resume Form
       document
         .getElementById("parsedForm")
         .addEventListener("submit", async function (event) {
           event.preventDefault();
-
+          fullscreenAlert.style.display = "flex";
           const formData = new FormData(event.target);
 
           const data = {
@@ -578,7 +563,11 @@
             linkedin: formData.get("linkedin"),
             leetcode: formData.get("leetcode"),
             summary: formData.get("summary"),
-            skills: formData.get("skills").split(","),
+            skills: {
+              soft: formData.get("softSkills").split(","),
+              hard: formData.get("hardSkills").split(","),
+              technology: formData.get("technologySkills").split(","),
+            },
             internships: [
               {
                 name: formData.get("internshipName"),
@@ -627,7 +616,7 @@
 
           // alert("form sent successfully");
           if (response.ok) {
-            fullscreenAlert.style.display = "flex";
+           
             const blob = await response.blob();
             const link = document.createElement("a");
             link.href = URL.createObjectURL(blob);
