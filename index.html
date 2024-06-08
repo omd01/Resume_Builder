@@ -1,628 +1,519 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LinksUs Resume Builder</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="icon" type="image/x-icon"  href="https://linksus.in/images/LS%20logo1.png">
-    
-  </head>
 
-  <body class="">
-    <!-- Full Screen Banner  -->
-    <div
-      class="h-full w-screen bg-[#0271bb]/[.850] z-20 fixed justify-center items-center hidden "
-      id="fullscreenAlert"
-    >
-      <div
-        class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow"
-      >
-     
-        
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LinksUs Resume Builder</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" type="image/x-icon" href="https://linksus.in/images/LS%20logo1.png">
+
+</head>
+
+<body class="">
+  <!-- Full Screen Banner  -->
+  <div class="h-full w-screen bg-[#0271bb]/[.850] z-20 fixed justify-center items-center hidden " id="fullscreenAlert">
+    <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow">
+
+
       </p>
-        <img class="h-7 text-gray-500 mb-3" src="https://linksus.in/images/LinksUs%20Logo.png" alt="Logo" >
-       
-        <p class="mb-3  font-semibold text-green-600">
-          Your resume is being generated...
-        </p>
-        <a href="https://linksus.in/">
-          <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900">
-            Are you lacking real world industry experience?
-          </h5>
-        </a>
-        <p class="mb-3 font-normal text-gray-500">
-          LinksUs provide an engaging environment for undergraduates and companies to get involved and bridge the gap of pre industry experience and proof of work. Visit our website and Elevate your career today!
-        </p>
-        <a
-          href="https://linksus.in/"
-          class="inline-flex font-medium items-center text-blue-600 hover:underline"
-        >
-          Visit LinksUS
-          <svg
-            class="w-3 h-3 ms-2.5 rtl:rotate-[270deg]"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 18 18"
-          >
-            <path
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778"
-            />
-          </svg>
-        </a>
-      </div>
+      <img class="h-7 text-gray-500 mb-3" src="https://linksus.in/images/LinksUs%20Logo.png" alt="Logo">
+
+      <p class="mb-3  font-semibold text-green-600">
+        Your resume is being generated...
+      </p>
+      <a href="https://linksus.in/">
+        <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900">
+          Are you lacking real world industry experience?
+        </h5>
+      </a>
+      <p class="mb-3 font-normal text-gray-500">
+        LinksUs provide an engaging environment for undergraduates and companies to get involved and bridge the gap of
+        pre industry experience and proof of work. Visit our website and Elevate your career today!
+      </p>
+      <a href="https://linksus.in/" class="inline-flex font-medium items-center text-blue-600 hover:underline">
+        Visit LinksUS
+        <svg class="w-3 h-3 ms-2.5 rtl:rotate-[270deg]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+          fill="none" viewBox="0 0 18 18">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778" />
+        </svg>
+      </a>
     </div>
+  </div>
 
-    <div class="container flex flex-col justify-center w-full p-2">
-      <header class="flex justify-center flex-col items-center pt-4">
-        <h1 class="text-[#007bff] font-bold text-3xl">Resume Builder Pro</h1>
-        <a href="https://linksus.in/"
-          ><p class="text-[#007bff] font-semibold text-lg">
-            Powered By <span class="font-bold">LinksUS</span>
-          </p></a
-        >
-      </header>
-
-      <main class="p-2">
-        <form
-          class="max-w-md mx-auto p-3 md:max-w-3xl"
-          action="/formdata"
-          method="post"
-          id="parsedForm"
-        >
-          <h2 class="pb-3 text-2xl">
-            Build ATS frendly resume by filling the form
-          </h2>
-
-          <div class="relative z-0 w-full mb-5 group">
-            <label
-              for="name"
-              class="block mb-2 text-sm font-medium text-gray-900"
-              >Name *</label
-            >
-            <input
-              type="text"
-              name="name"
-              id="name"
-              class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-              placeholder=" "
-              required
-            />
+  <!-- Main Container  -->
+  <div class="container flex flex-col justify-center w-full p-2">
+    <!-- Header  -->
+    <header class="flex justify-center flex-col items-center pt-4">
+      <h1 class="text-[#007bff] font-bold text-3xl">Resume Builder Pro</h1>
+      <a href="https://linksus.in/">
+        <p class="text-[#007bff] font-semibold text-lg">
+          Powered By <span class="font-bold">LinksUS</span>
+        </p>
+      </a>
+      <h2 class="text-base font-semibold text-slate-600 py-2">
+        Create an ATS-Friendly Resume Complete the Form
+      </h2>
+    </header>
+    <main class="p-2">
+      <!-- Taskbar -->
+      <div class="max-w-md mx-auto p-3 md:max-w-3xl">
+        <div class="w-full bg-white border border-gray-200 rounded-lg shadow">
+          <!-- Mobile Navigation  -->
+          <div class="sm:hidden">
+            <label for="tabs" class="sr-only">Select tab</label>
+            <select id="tabs"
+              class="bg-gray-50 border-0 border-b border-gray-200 text-gray-900 text-sm rounded-t-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+              <option value="personal">Personal</option>
+              <option value="education">Education</option>
+              <option value="experience">Experience</option>
+              <option value="internship">Internship</option>
+              <option value="projects">Projects</option>
+              <option value="skills">Skills</option>
+            </select>
           </div>
-          <div class="relative z-0 w-full mb-5 group">
-            <label
-              for="title"
-              class="block mb-2 text-sm font-medium text-gray-900"
-              >Title</label
-            >
-            <input
-              type="text"
-              name="title"
-              id="title"
-              class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-              placeholder=" "
-              required
-            />
-          </div>
-
-          <div class="relative z-0 w-full mb-5 group">
-            <label
-              for="phone"
-              class="block mb-2 text-sm font-medium text-gray-900"
-              >Phone</label
-            >
-            <input
-              type="text"
-              name="phone"
-              id="phone"
-              class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-              placeholder=" "
-              required
-            />
-          </div>
-
-          <div class="relative z-0 w-full mb-5 group">
-            <label
-              for="email"
-              class="block mb-2 text-sm font-medium text-gray-900"
-              >Email</label
-            >
-            <input
-              type="email"
-              name="email"
-              id="email"
-              class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-              placeholder=" "
-              required
-            />
-          </div>
-
-          <div class="grid md:grid-cols-2 md:gap-6">
-            <div class="relative z-0 w-full mb-5 group">
-              <label
-                for="location"
-                class="block mb-2 text-sm font-medium text-gray-900"
-                >Location</label
-              >
-              <input
-                type="text"
-                name="location"
-                id="location"
-                class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                placeholder=" "
-                required
-              />
-            </div>
-            <div class="relative z-0 w-full mb-5 group">
-              <label
-                for="github"
-                class="block mb-2 text-sm font-medium text-gray-900"
-                >GitHub</label
-              >
-              <input
-                type="text"
-                name="github"
-                id="github"
-                class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                placeholder=" "
-              />
-            </div>
-          </div>
-
-          <div class="grid md:grid-cols-2 md:gap-6">
-            <div class="relative z-0 w-full mb-5 group">
-              <label
-                for="leetcode"
-                class="block mb-2 text-sm font-medium text-gray-900"
-                >LeetCode</label
-              >
-              <input
-                type="text"
-                name="leetcode"
-                id="leetcode"
-                class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                placeholder=" "
-              />
-            </div>
-            <div class="relative z-0 w-full mb-5 group">
-              <label
-                for="linkedin"
-                class="block mb-2 text-sm font-medium text-gray-900"
-                >Linkdin</label
-              >
-              <input
-                type="text"
-                name="linkedin"
-                id="linkedin"
-                class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                placeholder=" "
-              />
-            </div>
-          </div>
-          <div class="relative z-0 w-full mb-5 group">
-            <label
-              for="summary"
-              class="block mb-2 text-sm font-medium text-gray-900"
-              >Summary</label
-            >
-            <textarea
-              rows="2"
-              type="text"
-              name="summary"
-              id="summary"
-              class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-              placeholder=" "
-              required
-            ></textarea>
-          </div>
-
-                <!-- Skills -->
-
-                <div class="flex items-center py-6">
-                  <div class="">
-                    <h2 class="text-lg mr-5">skills</h2>
+          <!-- Desktop Navigation  -->
+          <ul
+            class="hidden text-sm font-medium text-center text-gray-500 divide-x divide-gray-200 rounded-lg sm:flex rtl:divide-x-reverse"
+            id="fullWidthTab" data-tabs-toggle="#fullWidthTabContent" role="tablist">
+            <li class="w-full  bg-gray-200 text-blue-600">
+              <button id="personal-tab" data-tabs-target="#personal" type="button" role="tab" aria-controls="personal"
+                aria-selected="true"
+                class="inline-block w-full p-4 rounded-ss-lg bg-gray-50 hover:bg-gray-100 focus:outline-none">Personal</button>
+            </li>
+            <li class="w-full">
+              <button id="education-tab" data-tabs-target="#education" type="button" role="tab"
+                aria-controls="education" aria-selected="false"
+                class="inline-block w-full p-4 bg-gray-50 hover:bg-gray-100 focus:outline-none">Education</button>
+            </li>
+            <li class="w-full">
+              <button id="experience-tab" data-tabs-target="#experience" type="button" role="tab"
+                aria-controls="experience" aria-selected="false"
+                class="inline-block w-full p-4 bg-gray-50 hover:bg-gray-100 focus:outline-none">Experience</button>
+            </li>
+            <li class="w-full">
+              <button id="internship-tab" data-tabs-target="#internship" type="button" role="tab"
+                aria-controls="internship" aria-selected="false"
+                class="inline-block w-full p-4 bg-gray-50 hover:bg-gray-100 focus:outline-none">Internship</button>
+            </li>
+            <li class="w-full">
+              <button id="projects-tab" data-tabs-target="#projects" type="button" role="tab" aria-controls="projects"
+                aria-selected="false"
+                class="inline-block w-full p-4 bg-gray-50 hover:bg-gray-100 focus:outline-none">Projects</button>
+            </li>
+            <li class="w-full">
+              <button id="skills-tab" data-tabs-target="#skills" type="button" role="tab" aria-controls="skills"
+                aria-selected="false"
+                class="inline-block w-full p-4 rounded-se-lg bg-gray-50 hover:bg-gray-100 focus:outline-none">Skills</button>
+            </li>
+          </ul>
+          <!-- Main Form -->
+          <div id="fullWidthTabContent" class="border-t border-gray-200">
+            <form action="/formdata" method="post" id="parsedForm">
+              <!-- Personal --> 
+              <div class="p-4 rounded-lg md:p-8" id="personal" role="tabpanel" aria-labelledby="personal-tab">
+                <!-- Name  -->
+                <div class="relative z-0 w-full mb-5 group">
+                  <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Name *</label>
+                  <input type="text" name="name" id="name"
+                    class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    placeholder=" " required />
+                </div>
+                <!-- Title -->
+                <div class="relative z-0 w-full mb-5 group">
+                  <label for="title" class="block mb-2 text-sm font-medium text-gray-900">Title</label>
+                  <input type="text" name="title" id="title"
+                    class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    placeholder=" " required />
+                </div>
+                <!-- Phone -->
+                <div class="relative z-0 w-full mb-5 group">
+                  <label for="phone" class="block mb-2 text-sm font-medium text-gray-900">Phone</label>
+                  <input type="text" name="phone" id="phone"
+                    class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    placeholder=" " required />
+                </div>
+                <!-- Email -->
+                <div class="relative z-0 w-full mb-5 group">
+                  <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Email</label>
+                  <input type="email" name="email" id="email"
+                    class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    placeholder=" " required />
+                </div>
+                <!-- Location & GitHub-->
+                <div class="grid md:grid-cols-2 md:gap-6">
+                  <div class="relative z-0 w-full mb-5 group">
+                    <label for="location" class="block mb-2 text-sm font-medium text-gray-900">Location</label>
+                    <input type="text" name="location" id="location"
+                      class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                      placeholder=" " required />
                   </div>
-                  <div class="h-[2px] bg-slate-300 w-full"></div>
+                  <div class="relative z-0 w-full mb-5 group">
+                    <label for="github" class="block mb-2 text-sm font-medium text-gray-900">GitHub</label>
+                    <input type="text" name="github" id="github"
+                      class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                      placeholder=" " />
+                  </div>
                 </div>
-      
+                <!-- Litcode & Linkdin -->
+                <div class="grid md:grid-cols-2 md:gap-6">
+                  <div class="relative z-0 w-full mb-5 group">
+                    <label for="leetcode" class="block mb-2 text-sm font-medium text-gray-900">LeetCode</label>
+                    <input type="text" name="leetcode" id="leetcode"
+                      class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                      placeholder=" " />
+                  </div>
+                  <div class="relative z-0 w-full mb-5 group">
+                    <label for="linkedin" class="block mb-2 text-sm font-medium text-gray-900">Linkdin</label>
+                    <input type="text" name="linkedin" id="linkedin"
+                      class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                      placeholder=" " />
+                  </div>
+                </div>
+                <!-- Summary  -->
                 <div class="relative z-0 w-full mb-5 group">
-                  <label
-                    for="softSkills"
-                    class="block mb-2 text-sm font-medium text-gray-900"
-                    >Soft Skills ( seprate by comma ',' )</label
-                  >
-                  <input
-                    type="text"
-                    name="softSkills"
-                    id="softSkills"
+                  <label for="summary" class="block mb-2 text-sm font-medium text-gray-900">Summary</label>
+                  <textarea rows="2" type="text" name="summary" id="summary"
                     class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                    placeholder=" "
-                    required
-                  />
+                    placeholder=" " required></textarea>
                 </div>
-      
+                <!-- Next Button -->
+                <div class="flex justify-end items-center mt-5">
+                  <button type="button"
+                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none"
+                    onclick="navigateTabs('next')">Next</button>
+                </div>
+              </div>
+
+              <!-- Education -->
+              <div class="p-4 bg-white rounded-lg md:p-8 hidden" id="education" role="tabpanel"
+                aria-labelledby="education-tab">
+                <!-- Degree -->
                 <div class="relative z-0 w-full mb-5 group">
-                  <label
-                    for="hardSkills"
-                    class="block mb-2 text-sm font-medium text-gray-900"
-                    >Hard Skills</label
-                  >
-                  <input
-                    type="text"
-                    name="hardSkills"
-                    id="hardSkills"
+                  <label for="educationDegree" class="block mb-2 text-sm font-medium text-gray-900">Degree</label>
+                  <input type="text" name="educationDegree" id="educationDegree"
                     class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                    placeholder=" "
-                    required
-                  />
+                    placeholder=" " />
                 </div>
-      
+                <!-- Institution -->
                 <div class="relative z-0 w-full mb-5 group">
-                  <label
-                    for="technologySkills"
-                    class="block mb-2 text-sm font-medium text-gray-900"
-                    >Technology Skills</label
-                  >
-                  <input
-                    type="text"
-                    name="technologySkills"
-                    id="technologySkills"
+                  <label for="educationInstitution"
+                    class="block mb-2 text-sm font-medium text-gray-900">Institution</label>
+                  <input type="text" name="educationInstitution" id="educationInstitution"
                     class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                    placeholder=" "
-                    required
-                  />
+                    placeholder=" " />
                 </div>
 
-          
+                <div class="flex justify-between items-center mt-5">
+                  <button type="button"
+                    class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"
+                    onclick="navigateTabs('prev')">Back</button>
 
-          <!-- Education -->
+                  <button type="button"
+                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none"
+                    onclick="navigateTabs('next')">Next</button>
+                </div>
+              </div>
 
-          <div class="flex items-center py-6">
-            <div class="">
-              <h2 class="text-lg mr-5">Education</h2>
-            </div>
-            <div class="h-[2px] bg-slate-300 w-full"></div>
+              <!-- Experience -->
+              <div class="p-4 bg-white rounded-lg md:p-8 hidden" id="experience" role="tabpanel"
+                aria-labelledby="experience-tab">
+                <!-- Position & Company & Duration & Badge Link -->
+                <div class="grid md:grid-cols-2 md:gap-6">
+                <!-- Position  -->
+                <div class="relative z-0 w-full mb-5 group">
+                  <label for="experiencePosition" class="block mb-2 text-sm font-medium text-gray-900">Position</label>
+                  <input type="text" name="experiencePosition" id="experiencePosition"
+                    class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    placeholder=" " />
+                </div>
+                <!-- Company -->
+                <div class="relative z-0 w-full mb-5 group">
+                  <label for="experienceCompany" class="block mb-2 text-sm font-medium text-gray-900">Company</label>
+                  <input type="text" name="experienceCompany" id="experienceCompany"
+                    class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    placeholder=" " />
+                </div>
+                <!-- Duration  -->
+                <div class="relative z-0 w-full mb-5 group">
+                  <label for="experienceDuration" class="block mb-2 text-sm font-medium text-gray-900">Duration</label>
+                  <input type="text" name="experienceDuration" id="experienceDuration"
+                    class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    placeholder=" " />
+                </div>
+                <!-- Badge Link -->
+                <div class="relative z-0 w-full mb-5 group">
+                  <label for="experienceBadgeLink" class="block mb-2 text-sm font-medium text-gray-900">Badge Link</label>
+                  <input type="text" name="experienceBadgeLink" id="experienceBadgeLink"
+                    class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    placeholder=" " />
+                </div>
+                </div>
+                <!-- Description -->
+                <div class="relative z-0 w-full mb-5 group">
+                <label for="experienceDescription" class="block mb-2 text-sm font-medium text-gray-900">Description</label>
+                <textarea type="text" rows="3" name="experienceDescription" id="experienceDescription"
+                  class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  placeholder=" "></textarea>
+                </div>
+                <!-- Next Prev Button -->
+                <div class="flex justify-between items-center mt-5">
+                  <button type="button"
+                    class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"
+                    onclick="navigateTabs('prev')">Back</button>
+                  <button type="button"
+                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none"
+                    onclick="navigateTabs('next')">Next</button>
+                </div>
+              </div>
+
+              <!-- Internship -->
+              <div class="p-4 bg-white rounded-lg md:p-8 hidden" id="internship" role="tabpanel"
+                aria-labelledby="internship-tab">
+                <!-- Internship Name -->
+                <div class="relative z-0 w-full mb-5 group">
+                  <label for="internshipName" class="block mb-2 text-sm font-medium text-gray-900">Internship Name</label>
+                  <input type="text" name="internshipName" id="internshipName"
+                    class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    placeholder=" " />
+                </div>
+                <!-- Internship Position & Duration -->
+                <div class="grid md:grid-cols-2 md:gap-6">
+                  <!-- Position  -->
+                  <div class="relative z-0 w-full mb-5 group">
+                    <label for="internshipPosition" class="block mb-2 text-sm font-medium text-gray-900">Position</label>
+                    <input type="text" name="internshipPosition" id="internshipPosition"
+                      class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                      placeholder=" " />
+                  </div>
+                  <!-- Duration -->
+                  <div class="relative z-0 w-full mb-5 group">
+                    <label for="internshipDuration" class="block mb-2 text-sm font-medium text-gray-900">Duration</label>
+                    <input type="text" name="internshipDuration" id="internshipDuration"
+                      class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                      placeholder=" " />
+                  </div>
+                </div>
+                <!-- Description -->
+                <div class="relative z-0 w-full mb-5 group">
+                  <label for="internshipDescription" class="block mb-2 text-sm font-medium text-gray-900">Description</label>
+                  <textarea type="text" rows="3" name="internshipDescription" id="internshipDescription"
+                    class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    placeholder=" "></textarea>
+                </div>
+                <!-- Next Prev Button -->
+                <div class="flex justify-between mt-5 items-center">
+                  <button type="button"
+                    class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"
+                    onclick="navigateTabs('prev')">Back</button>
+                  <button type="button"
+                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none"
+                    onclick="navigateTabs('next')">Next</button>
+                </div>
+              </div>
+
+              <!-- Projects -->
+              <div class="p-4 bg-white rounded-lg md:p-8 hidden" id="projects" role="tabpanel"
+                aria-labelledby="projects-tab">
+                <!-- Project Name & Technology -->
+                <div class="grid md:grid-cols-2 md:gap-6">
+                <!-- Project Name -->
+                <div class="relative z-0 w-full mb-5 group">
+                  <label for="projectName" class="block mb-2 text-sm font-medium text-gray-900">Project Name</label>
+                  <input type="text" name="projectName" id="projectName"
+                    class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    placeholder=" " />
+                </div>
+                <!-- Technology -->
+                <div class="relative z-0 w-full mb-5 group">
+                  <label for="projectTechnology" class="block mb-2 text-sm font-medium text-gray-900">Technology</label>
+                  <input type="text" name="projectTechnology" id="projectTechnology"
+                    class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    placeholder=" " />
+                </div>
+                </div>
+                <!-- Description -->
+                <div class="relative z-0 w-full mb-5 group">
+                  <label for="projectDescription" class="block mb-2 text-sm font-medium text-gray-900">Description</label>
+                  <textarea type="text" rows="3" name="projectDescription" id="projectDescription"
+                    class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    placeholder=" "></textarea>
+                </div>
+                <!-- Next Prev Button -->
+                <div class="flex items-center justify-between mt-5">
+                  <button type="button"
+                    class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"
+                    onclick="navigateTabs('prev')">Back</button>
+                  <button type="button"
+                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none"
+                    onclick="navigateTabs('next')">Next</button>
+                </div>
+              </div>
+
+              <!-- Skills -->
+              <div class="p-4 bg-white rounded-lg md:p-8 hidden" id="skills" role="tabpanel"
+                aria-labelledby="skills-tab">
+                <!-- Soft Skills -->
+                <div class="relative z-0 w-full mb-5 group">
+                  <label for="softSkills" class="block mb-2 text-sm font-medium text-gray-900">Soft Skills ( seprate by comma
+                    ',' )</label>
+                  <input type="text" name="softSkills" id="softSkills"
+                    class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    placeholder=" " required />
+                </div>
+                <!-- Hard Skills -->
+                <div class="relative z-0 w-full mb-5 group">
+                  <label for="hardSkills" class="block mb-2 text-sm font-medium text-gray-900">Hard Skills</label>
+                  <input type="text" name="hardSkills" id="hardSkills"
+                    class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    placeholder=" " required />
+                </div>
+                <!-- Technology Skills -->
+                <div class="relative z-0 w-full mb-5 group">
+                  <label for="technologySkills" class="block mb-2 text-sm font-medium text-gray-900">Technology Skills</label>
+                  <input type="text" name="technologySkills" id="technologySkills"
+                    class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    placeholder=" " required />
+                </div>
+                <!-- Submit Button -->
+                <div class="flex items-center justify-between mt-5">
+                  <button type="button"
+                      class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"
+                      onclick="navigateTabs('prev')">Back</button>
+
+                  <button type="submit" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 ">Submit</button>
+                </div>
+              </div>
+
+            </form>
           </div>
+        </div>
+      </div>
+    </main>
+  </div>
 
-          <div class="grid md:grid-cols-2 md:gap-6">
-            <div class="relative z-0 w-full mb-5 group">
-              <label
-                for="educationDegree"
-                class="block mb-2 text-sm font-medium text-gray-900"
-                >Degree</label
-              >
-              <input
-                type="text"
-                name="educationDegree"
-                id="educationDegree"
-                class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                placeholder=" "
-              />
-            </div>
+  <script>
+    // Alert Box logic
+    const fullscreenAlert = document.getElementById("fullscreenAlert");
+    fullscreenAlert.addEventListener("click", () => {
+      fullscreenAlert.style.display = "none";
+    });
 
-            <div class="relative z-0 w-full mb-5 group">
-              <label
-                for="educationInstitution"
-                class="block mb-2 text-sm font-medium text-gray-900"
-                >Institution</label
-              >
-              <input
-                type="text"
-                name="educationInstitution"
-                id="educationInstitution"
-                class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                placeholder=" "
-              />
-            </div>
-          </div>
+    //  Send Resume Form to Server
+    document.getElementById("parsedForm").addEventListener("submit", async function (event) {
+        event.preventDefault();
+        fullscreenAlert.style.display = "flex";
+        const formData = new FormData(event.target);
 
-          <!-- Internship -->
-          <div class="flex items-center py-6">
-            <div class="">
-              <h2 class="text-lg mr-5">Internships</h2>
-            </div>
-            <div class="h-[2px] bg-slate-300 w-full"></div>
-          </div>
-          <div class="relative z-0 w-full mb-5 group">
-            <label
-              for="internshipName"
-              class="block mb-2 text-sm font-medium text-gray-900"
-              >Internship Name</label
-            >
-            <input
-              type="text"
-              name="internshipName"
-              id="internshipName"
-              class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-              placeholder=" "
-            />
-          </div>
-          <div class="grid md:grid-cols-2 md:gap-6">
-            <div class="relative z-0 w-full mb-5 group">
-              <label
-                for="internshipPosition"
-                class="block mb-2 text-sm font-medium text-gray-900"
-                >Position</label
-              >
-              <input
-                type="text"
-                name="internshipPosition"
-                id="internshipPosition"
-                class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                placeholder=" "
-              />
-            </div>
-
-            <div class="relative z-0 w-full mb-5 group">
-              <label
-                for="internshipDuration"
-                class="block mb-2 text-sm font-medium text-gray-900"
-                >Duration</label
-              >
-              <input
-                type="text"
-                name="internshipDuration"
-                id="internshipDuration"
-                class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                placeholder=" "
-              />
-            </div>
-          </div>
-
-          <div class="relative z-0 w-full mb-5 group">
-            <label
-              for="internshipDescription"
-              class="block mb-2 text-sm font-medium text-gray-900"
-              >Description</label
-            >
-            <textarea
-              type="text"
-              rows="3"
-              name="internshipDescription"
-              id="internshipDescription"
-              class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-              placeholder=" "
-            ></textarea>
-          </div>
-
-          <!-- Experience -->
-          <div class="flex items-center py-6">
-            <div class="">
-              <h2 class="text-lg mr-5">Experience</h2>
-            </div>
-            <div class="h-[2px] bg-slate-300 w-full"></div>
-          </div>
-          <div class="grid md:grid-cols-2 md:gap-6">
-            <div class="relative z-0 w-full mb-5 group">
-              <label
-                for="experiencePosition"
-                class="block mb-2 text-sm font-medium text-gray-900"
-                >Position</label
-              >
-              <input
-                type="text"
-                name="experiencePosition"
-                id="experiencePosition"
-                class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                placeholder=" "
-              />
-            </div>
-
-            <div class="relative z-0 w-full mb-5 group">
-              <label
-                for="experienceCompany"
-                class="block mb-2 text-sm font-medium text-gray-900"
-                >Company</label
-              >
-              <input
-                type="text"
-                name="experienceCompany"
-                id="experienceCompany"
-                class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                placeholder=" "
-              />
-            </div>
-
-            <div class="relative z-0 w-full mb-5 group">
-              <label
-                for="experienceDuration"
-                class="block mb-2 text-sm font-medium text-gray-900"
-                >Duration</label
-              >
-              <input
-                type="text"
-                name="experienceDuration"
-                id="experienceDuration"
-                class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                placeholder=" "
-              />
-            </div>
-
-            <div class="relative z-0 w-full mb-5 group">
-              <label
-                for="experienceBadgeLink"
-                class="block mb-2 text-sm font-medium text-gray-900"
-                >Badge Link</label
-              >
-              <input
-                type="text"
-                name="experienceBadgeLink"
-                id="experienceBadgeLink"
-                class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                placeholder=" "
-              />
-            </div>
-          </div>
-
-          <div class="relative z-0 w-full mb-5 group">
-            <label
-              for="experienceDescription"
-              class="block mb-2 text-sm font-medium text-gray-900"
-              >Description</label
-            >
-            <textarea
-              type="text"
-              rows="3"
-              name="experienceDescription"
-              id="experienceDescription"
-              class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-              placeholder=" "
-            ></textarea>
-          </div>
-
-          <div class="flex items-center py-6">
-            <div class="">
-              <h2 class="text-lg mr-5">Projects</h2>
-            </div>
-            <div class="h-[2px] bg-slate-300 w-full"></div>
-          </div>
-
-          <div class="grid md:grid-cols-2 md:gap-6">
-            <div class="relative z-0 w-full mb-5 group">
-              <label
-                for="projectName"
-                class="block mb-2 text-sm font-medium text-gray-900"
-                >Project Name</label
-              >
-              <input
-                type="text"
-                name="projectName"
-                id="projectName"
-                class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                placeholder=" "
-              />
-            </div>
-
-            <div class="relative z-0 w-full mb-5 group">
-              <label
-                for="projectTechnology"
-                class="block mb-2 text-sm font-medium text-gray-900"
-                >Technology</label
-              >
-              <input
-                type="text"
-                name="projectTechnology"
-                id="projectTechnology"
-                class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                placeholder=" "
-              />
-            </div>
-          </div>
-
-          <div class="relative z-0 w-full mb-5 group">
-            <label
-              for="projectDescription"
-              class="block mb-2 text-sm font-medium text-gray-900"
-              >Description</label
-            >
-            <textarea
-              type="text"
-              rows="3"
-              name="projectDescription"
-              id="projectDescription"
-              class="shadow-sm bg-gray-50 border border-gray-300 outline-blue-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-              placeholder=" "
-            ></textarea>
-          </div>
-
-          <button
-            type="submit"
-            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-          >
-            Submit
-          </button>
-        </form>
-      </main>
-    </div>
-
-    <script>
-      const fullscreenAlert = document.getElementById("fullscreenAlert");
-
-      fullscreenAlert.addEventListener("click", () => {
-        fullscreenAlert.style.display = "none";
-      });
-     
-      //   Send Resume Form
-      document
-        .getElementById("parsedForm")
-        .addEventListener("submit", async function (event) {
-          event.preventDefault();
-          fullscreenAlert.style.display = "flex";
-          const formData = new FormData(event.target);
-
-          const data = {
-            name: formData.get("name"),
-            title: formData.get("title"),
-            phone: formData.get("phone"),
-            email: formData.get("email"),
-            github: formData.get("github"),
-            location: formData.get("location"),
-            linkedin: formData.get("linkedin"),
-            leetcode: formData.get("leetcode"),
-            summary: formData.get("summary"),
-            skills: {
-              soft: formData.get("softSkills").split(","),
-              hard: formData.get("hardSkills").split(","),
-              technology: formData.get("technologySkills").split(","),
+        const data = {
+          name: formData.get("name"),
+          title: formData.get("title"),
+          phone: formData.get("phone"),
+          email: formData.get("email"),
+          github: formData.get("github"),
+          location: formData.get("location"),
+          linkedin: formData.get("linkedin"),
+          leetcode: formData.get("leetcode"),
+          summary: formData.get("summary"),
+          skills: {
+            soft: formData.get("softSkills").split(","),
+            hard: formData.get("hardSkills").split(","),
+            technology: formData.get("technologySkills").split(","),
+          },
+          internships: [
+            {
+              name: formData.get("internshipName"),
+              position: formData.get("internshipPosition"),
+              duration: formData.get("internshipDuration"),
+              description: formData.get("internshipDescription"),
             },
-            internships: [
-              {
-                name: formData.get("internshipName"),
-                position: formData.get("internshipPosition"),
-                duration: formData.get("internshipDuration"),
-                description: formData.get("internshipDescription"),
-              },
-            ],
-            experience: [
-              {
-                position: formData.get("experiencePosition"),
-                company: formData.get("experienceCompany"),
-                duration: formData.get("experienceDuration"),
-                badgeLink: formData.get("experienceBadgeLink"),
-                description: formData.get("experienceDescription"),
-              },
-            
-            ],
-            projects: [
-              {
-                name: formData.get("projectName"),
-                technology: formData.get("projectTechnology"),
-                description: formData.get("projectDescription"),
-              },
-            ],
-            education: {
-              degree: formData.get("educationDegree"),
-              institution: formData.get("educationInstitution"),
-              duration: formData.get("educationDuration"),
+          ],
+          experience: [
+            {
+              position: formData.get("experiencePosition"),
+              company: formData.get("experienceCompany"),
+              duration: formData.get("experienceDuration"),
+              badgeLink: formData.get("experienceBadgeLink"),
+              description: formData.get("experienceDescription"),
             },
-          };
 
-          const response = await fetch("/formdata", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
+          ],
+          projects: [
+            {
+              name: formData.get("projectName"),
+              technology: formData.get("projectTechnology"),
+              description: formData.get("projectDescription"),
             },
-            body: JSON.stringify(data),
-          });
+          ],
+          education: {
+            degree: formData.get("educationDegree"),
+            institution: formData.get("educationInstitution"),
+            duration: formData.get("educationDuration"),
+          },
+        };
 
-          // alert("form sent successfully");
-          if (response.ok) {
-           
-            const blob = await response.blob();
-            const link = document.createElement("a");
-            link.href = URL.createObjectURL(blob);
-            link.download = data.name + ".pdf";
-            link.click();
-            URL.revokeObjectURL(link.href);
-          } else {
-            console.error("Failed to download PDF:", response.statusText);
-          }
+        const response = await fetch("/formdata", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
         });
-    </script>
-  </body>
+
+        // alert("form sent successfully");
+        if (response.ok) {
+
+          const blob = await response.blob();
+          const link = document.createElement("a");
+          link.href = URL.createObjectURL(blob);
+          link.download = data.name + ".pdf";
+          link.click();
+          URL.revokeObjectURL(link.href);
+        } else {
+          console.error("Failed to download PDF:", response.statusText);
+        }
+      });
+
+    // Tabs Navigation
+    const tabs = document.querySelectorAll('[data-tabs-target]');
+    const tabContents = document.querySelectorAll('[role="tabpanel"]');
+    const selectDropdown = document.getElementById('tabs');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const target = document.querySelector(tab.dataset.tabsTarget);
+        tabContents.forEach(tc => tc.classList.add('hidden'));
+        tabs.forEach(t => t.classList.remove('bg-gray-200', 'text-blue-600'));
+        target.classList.remove('hidden');
+        tab.classList.add('bg-gray-200', 'text-blue-600');
+      });
+    });
+    selectDropdown.addEventListener('change', (event) => {
+      const selectedTab = event.target.value;
+      const target = document.getElementById(selectedTab);
+      tabContents.forEach(tc => tc.classList.add('hidden'));
+      tabs.forEach(t => t.classList.remove('bg-gray-200', 'text-blue-600'));
+      target.classList.remove('hidden');
+      document.querySelector(`[data-tabs-target="#${selectedTab}"]`).classList.add('bg-gray-200', 'text-blue-600');
+    });
+    function navigateTabs(direction) {
+      const visibleTabContent = Array.from(tabContents).find(tc => !tc.classList.contains('hidden'));
+      const currentIndex = Array.from(tabContents).indexOf(visibleTabContent);
+      let newIndex;
+      if (direction === 'next') {
+        newIndex = currentIndex + 1 >= tabContents.length ? currentIndex : currentIndex + 1;
+      } else {
+        newIndex = currentIndex - 1 < 0 ? currentIndex : currentIndex - 1;
+      }
+      const newVisibleTabContent = tabContents[newIndex];
+      tabContents.forEach(tc => tc.classList.add('hidden'));
+      tabs.forEach(t => t.classList.remove('bg-gray-200', 'text-blue-600'));
+      newVisibleTabContent.classList.remove('hidden');
+      document.querySelector(`[data-tabs-target="#${newVisibleTabContent.id}"]`).classList.add('bg-gray-200', 'text-blue-600');
+      selectDropdown.value = newVisibleTabContent.id;
+    }
+
+  </script>
+
+</body>
 </html>
