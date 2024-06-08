@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LinksUs Resume Builder</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/x-icon"  href="https://linksus.in/images/LS%20logo1.png">
+    
   </head>
 
   <body class="">
     <!-- Full Screen Banner  -->
     <div
-      class="h-full w-screen bg-[#0271bb]/[.850] z-20 fixed justify-center items-center flex "
+      class="h-full w-screen bg-[#0271bb]/[.850] z-20 fixed justify-center items-center hidden "
       id="fullscreenAlert"
     >
       <div
@@ -584,13 +586,7 @@
                 badgeLink: formData.get("experienceBadgeLink"),
                 description: formData.get("experienceDescription"),
               },
-              {
-                position: formData.get("experiencePosition"),
-                company: formData.get("experienceCompany"),
-                duration: formData.get("experienceDuration"),
-                badgeLink: formData.get("experienceBadgeLink"),
-                description: formData.get("experienceDescription"),
-              },
+            
             ],
             projects: [
               {
