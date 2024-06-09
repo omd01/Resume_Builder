@@ -46,17 +46,19 @@
                 <p class="pl-2"><%= exp.description %></p>
             <% }); %>
         </section>
-        <section class="education">
+        <section class="education py-4">
             <h2 class="text-base font-medium border-b-2 mb-3">EDUCATION</h2>
-            <div class="flex items-center w-full justify-between pb-1">
-                <div>
-                    <h3 class="text-base font-semibold"><%= education.degree %></h3>
-                    <p><%= education.institution %></p>
+            <% education.forEach(function(education) { %>
+                <div class="flex items-center w-full justify-between pb-1">  
+                    <div>
+                        <h3 class="text-base font-semibold"><%= education.degree %></h3>
+                        <p><%= education.institution %></p>
+                    </div>
+                    <div>
+                        <p><%= education.duration %></p>
+                    </div>
                 </div>
-                <div>
-                    <p><%= education.duration %></p>
-                </div>
-            </div>
+            <% }); %>
         </section>
         <section class="internships py-4">
             <h2 class="text-base font-medium border-b-2 mb-3">INTERNSHIP</h2>
